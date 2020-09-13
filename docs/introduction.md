@@ -15,38 +15,34 @@
   
 
 
-- **No packages to install or static files to build**<br>
-  All processing is done in the browser, removing the need for CSS preprocessors and other build tools. Just link to a theme, then customize by setting [theme-related properties](customization). That's it.
+## IP地址详解（初级）
 
-- **Multiple themes available**<br>
-  Use a theme as-is, or as a starting point for something completely new. All themes share the same customizable properties, making it easy mix styles from different themes.
+  - **单局域网的构成：** <br>
+  
+      - <P>交换机，网线，其他终端 <P> 
 
-- **Improved desktop and mobile experience**<br>
-  Enhancements that are unique to docsify-themeable—along with docsify- and browser-related bug fixes—provide a more enjoyable and trouble-free experience for site authors and visitors.
+  - **交换机：** <br>
+      - <P>用来组建内网的局域网的设备 <P> 
 
-  - [Extensive customization](customization)
-  - [PrismJS theme compatibility](customization#prismjs)
-  - [Module scale typography](customization#base)
-  - [Plugin customization](customization#plugin-styles)
-  - [Ready transition](options#readytransition)
-  - [Responsive tables](options#responsivetables)
+### IP
+    Ip地址范围:	  0-255
 
-- **Legacy browser support (IE10+)**<br>
-  Thoroughly tested and fully compatible with legacy browsers, including support for CSS custom properties (courtesy of a handy [ponyfill](https://github.com/jhildenbiddle/css-vars-ponyfill) developed specifically for docsify-themeable).
+### 子网掩码：	
+***局域网通信规则:** <br>
+  
 
-?> Like docsify-themeable? Be sure to check out [docsify-tabs](https://jhildenbiddle.github.io/docsify-tabs)!
+在同一局域网中，所有的IP必须在同一网段中才可以互相通信
 
-## Contact & Support
+            IP地址构成：网络位+主机位（网络位相同的IP地址 ，为同一网段）
+                 
+            子网掩码：用来确定IP地址的网络位
+            
+            如何确认网络位：与255对应的数字为网络位，与0对应的数字为主机位     
+	    例如：	
+              255.0.0.0
+		      255.255.0.0
+		      255.255.255.0
 
-- Create a [GitHub issue](https://github.com/jhildenbiddle/docsify-themeable/issues) for bug reports, feature requests, or questions
-- Follow [@jhildenbiddle](https://twitter.com/jhildenbiddle) for announcements
-- Add a ⭐️ [star on GitHub](https://github.com/jhildenbiddle/docsify-themeable) or ❤️ [tweet](https://twitter.com/intent/tweet?url=https%3A%2F%2Fgithub.com%2Fjhildenbiddle%2Fdocsify-themeable&hashtags=css,developers,frontend,javascript) to support the project!
-
-## License
-
-This project is licensed under the [MIT license](https://github.com/jhildenbiddle/docsify-themeable/blob/master/LICENSE).
-
-Copyright (c) John Hildenbiddle ([@jhildenbiddle](https://twitter.com/jhildenbiddle))
 
 <!-- GitHub Buttons -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>

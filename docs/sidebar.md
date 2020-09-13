@@ -8,6 +8,8 @@
 - [Changelog](changelog)
 - **GitHub**
 - [GitHub](GitHub)
+- **Gitb**
+- [Git](Git)
 - **Links**
 - [![Github](https://icongram.jgog.in/simple/github.svg?color=808080&size=16)Github](https://github.com/mochen072/github.io)
 
