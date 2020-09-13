@@ -34,8 +34,8 @@ state.
 ```
 
 <figure class="thumbnails">
-    <img src="assets/img/theme-simple-cover11.png" alt="Screenshot of coverpage" title="Cover page">
-    <img src="assets/img/theme-simple-cover11.png" alt="Screenshot of content" title="Content">
+    <img src="assets/img/theme-simple-cover11.jpg" alt="Screenshot of coverpage" title="Cover page">
+    <img src="assets/img/theme-simple-cover11.jpg" alt="Screenshot of content" title="Content">
 </figure>
 
 ### Simple Dark
