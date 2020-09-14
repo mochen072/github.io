@@ -1,6 +1,7 @@
 - **网络**
-- [网络基础](introduction)
-- [Quick Start](quick-start)
+- [网络](introduction)
+- **Linux**
+- [Linux](Linux)
 - [Themes](themes)
 - [Customization](customization)
 - [Options](options)
