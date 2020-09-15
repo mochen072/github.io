@@ -1,133 +1,77 @@
-# Themes
+## ARP攻击及原理
 
-### Defaults
+Kali Linux是基于Debian的Linux发行版， 设计用于数字取证操作系统.
 
-A minimalist theme containing only the default values used by all other
-themes. This theme is intended to serve as the most basic starting point for a
-customized theme.
 
-<a href="#" data-link-title="Defaults">Preview</a> |
-[Source](https://github.com/jhildenbiddle/docsify-themeable/tree/master/src/scss/themes/defaults)
+ ### <font color =#B22222 size=1>ARP欺骗原理及复现</font>
+* <font color =#FF4500 >什么ARP协议</font><br>
 
-```html
-<!-- Theme: Defaults -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-defaults.css">
-```
+    即地址解析协议，是根据IP地址解析物理地址的一个TCP/IP协议。主机将包含目标IP地址信息的ARP请求广播到网络中的所有主机，并接收返回消息，以此确定目标IP地址的物理地址；收到返回消息后将该IP地址和物理地址存入本机ARP缓存中并保留一定时间，以便下次请求时直接查询ARP缓存以节约资源.<br>
+    <font color =#FF0000>(工作在数据链路层)</font>
+*   <font color =#FF4500 size=9px>ARP欺骗</font><br>
 
+    是针对以太网地址解析协议（ARP）的一种攻击技术，通过欺骗局域网内访问者PC的网关MAC地址，使访问者PC错以为攻击者更改后的MAC地址是网关的MAC，导致网络不通。此种攻击可让攻击者获取局域网上的数据包甚至可篡改数据包，且可让网络上特定计算机或所有计算机无法正常连线。<br>
+    
+   <center> arp攻击原理</center>
 <figure class="thumbnails">
-    <img src="assets/img/theme-defaults-cover.png" alt="Screenshot of coverpage" title="Cover page">
-    <img src="assets/img/theme-defaults-content.png" alt="Screenshot of content" title="Content">
+    <img src="assets/img/通信方式1.png" alt="Screenshot of coverpage" title="Cover page">
+    
 </figure>
 
-### Simple
+### <font color =#B22222 size=1>ARP欺骗复现</font>
 
-A clean, versatile theme featuring a light color scheme with vibrant accents, a [system font stack](https://css-tricks.com/snippets/css/system-font-stack/), a gradient
-background cover page, and visual indicators for drop-menus and expand/collapse
-state.
-
-<a href="#" data-link-title="Simple">Preview</a> |
-[Source](https://github.com/jhildenbiddle/docsify-themeable/tree/master/src/scss/themes/theme-simple.scss)
-
-```html
-<!-- Theme: Simple -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
+#### 实验环境：
+  
+  - Kali LInux
+  - window7
+  - 局域网内
+  - arpspoof(kali自带)
+```IP
+win7      192.168.2.207
+kali      192.168.2.244
+注：目标主机（win7）ping一下百度确定能够上网
 ```
-
+  * 1.安装dnsiff
+```dnsiff是一个著名的网络嗅探工具包，高级口令嗅探工具，综合性网络嗅探工具包
+ apt-get install dnsiff      #root用户环境下
+```  
+  * 2.使用arpspoof
+```命令
+ arpspoof -i eth0 -t 192.168.1.112 192.168.1.1     
+-i 网卡
+-t 目标主机Ip  目标主机网管
+```
+#### <center> Kali</center>  
 <figure class="thumbnails">
-    <img src="assets/img/theme-simple-cover11.jpg" alt="Screenshot of coverpage" title="Cover page">
-    <img src="assets/img/theme-simple-cover11.jpg" alt="Screenshot of content" title="Content">
+    <img src="assets/img/Kali.png" alt="Screenshot of coverpage" title="Cover page">
 </figure>
 
-### Simple Dark
-
-A modified version of the Simple theme featuring a dark color scheme.
-
-<a href="#" data-link-title="Simple Dark">Preview</a> |
-[Source](https://github.com/jhildenbiddle/docsify-themeable/tree/master/src/scss/themes/theme-simple-dark.scss)
-
-```html
-<!-- Theme: Simple Dark -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css">
-```
-
+#### <center> 目标主机</center>  
 <figure class="thumbnails">
-    <img src="assets/img/theme-simple-dark-cover.png" alt="Screenshot of coverpage" title="Cover page">
-    <img src="assets/img/theme-simple-dark-content.png" alt="Screenshot of content" title="Content">
+    <img src="assets/img/目标主机.png" alt="Screenshot of coverpage" title="Cover page">
 </figure>
-1. Select a theme from the [Themes](themes) section and replace the `<link>` in your `index.html`.
 
-   ```html
-   <!-- Theme: Simple (latest v0.x.x) -->
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
-   ```
 
-1. Add the docsify-themeable plugin to your `index.html` after docsify:
 
-   ```html
-   <!-- docsify-themeable (latest v0.x.x) -->
-   <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0"></script>
-   ```
+### Arp防御
 
-1. Review the [Options](options) section and configure as needed. For example:
+  - 1. ARP 高速缓存超时设置
+  
 
-   ```html
-   <script>
-     window.$docsify = {
-         // ...
-         themeable: {
-             readyTransition : true, // default
-             responsiveTables: true  // default
-         }
-     }
-   </script>
-   ```
+  在ARP高速缓存中的表项一般都要设置超时值，缩短这个这个超时值能够有用的避免ARP表的溢出。
 
-1. Review the [Customization](customization) section and set theme properties as needed. For example:
+  - 2. IP+MAC访问操控   -----推荐使用
 
-   ```html
-   <style>
-     :root {
-       /* Reduce the font size */
-       --base-font-size: 14px;
+        单纯依托IP或MAC来树立信赖联系是不安全，抱负的安全联系树立在IP+MAC的根底上，这也是咱们校园网上网有必要绑定IP和MAC的因素之一。
 
-       /* Change the theme color hue */
-       --theme-hue: 325;
+  - 3. 静态ARP缓存表
 
-       /* Change the sidebar bullets */
-       --sidebar-nav-link-before-content: '😀';
-     }
-   </style>
-   ```
+      每台主机都有一个暂时寄存IP-MAC的对应表ARP攻击就经过更改这个缓存来到达诈骗的意图，运用静态的ARP来绑定正确的MAC是一个有用的办法，在命令行下运用arp -a能够检查当时的ARP缓存表。
 
-## Local Preview
+  - 4. 自动查询
 
-Previewing your site locally requires serving your files from a web server.
+      在某个正常的时间，做一个IP和MAC对应的数据库，以后定时检查当时的IP和MAC对应联系是否正常，定时检查交流机的流量列表，检查丢包率。
 
-The docsify [Quick Start](//docsify.js.org/#/quickstart) guide recommends [docsify-cli](//github.com/QingWei-Li/docsify-cli) for creating and previewing your site:
-
-```bash
-# Install docsify-cli globally
-npm install -g docsify-cli
-
-# Serve current directory
-docsify serve
-
-# Serve ./docs directory
-docsify serve docs
-```
-
-A simple [Python](https://www.python.org/) web server can also be used:
-
-```bash
-# Change to site directory
-cd /path/to/site/files
-
-# Show Python version
-python --version
-
-# Launch web server (Python 2.x)
-python -m SimpleHTTPServer
-
-# Launch web server (Python 3.x)
-python -m http.server
-```
+      ARP本省不能形成多大的损害，一旦被联系使用，其风险性就不可估量，因为ARP自身的疑问，使得防备ARP的攻击很棘手，经常检查当时的网络状况，监控流量对一个站长来说是个很好的风气
+    
+## ss asa as 

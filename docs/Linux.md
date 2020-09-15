@@ -35,8 +35,9 @@
 
 ## CentOS基本命令
 
-   * linux操作系统中一切皆文件,<mark>（文件名） sd(硬盘类型)<nbsp>    a(第一块)
-   * <mark>linux操作系统树状结构，目录==文件夹 <mark>
+      
+   * <font color=#8B0000 size=4 >linux操作系统树状结构，目录==文件夹</font>
+   * <font color=#B22222 size=4 >linux操作系统中一切皆文件,（文件名） sd(硬盘类型)   a(第一块)</font>
 
 
          fdisk -l	   # 硬盘大小

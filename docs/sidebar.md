@@ -2,7 +2,9 @@
 - [网络](introduction)
 - **Linux**
 - [Linux](Linux)
-- [Themes](themes)
+- [Kali Linux](themes)
+- **漏洞原理**
+- [SQL注入](SQL)
 - [Customization](customization)
 - [Options](options)
 - [Markdown](markdown)
