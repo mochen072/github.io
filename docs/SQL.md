@@ -1,5 +1,22 @@
 # MYSQL基础
 
+## MySQL元数据库information_schema（5版本以后才有）
+
+
+  <figure class="thumbnails">
+    <img src="assets/img/元数据库.png" alt="Screenshot of coverpage" title="Cover page">
+    
+</figure>
+
+## MySQL语句解析
+
+
+  <figure class="thumbnails">
+    <img src="assets/img/解析.png" alt="Screenshot of coverpage" title="Cover page">
+    
+</figure>
+
+
 ## MySQL常用内置函数
 
 | 函数名称 | 函数功能 | 
