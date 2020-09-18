@@ -1,4 +1,6 @@
 # SQLI靶场
+    
+
 
 [![NPM](https://img.shields.io/npm/v/docsify-themeable.svg?style=flat-square)](https://www.npmjs.com/package/docsify-themeable)
 [![Codacy grade](https://img.shields.io/codacy/grade/860d40719cbd4e0f91e145b87ec7c29a.svg?style=flat-square)](https://www.codacy.com/app/jhildenbiddle/docsify-themeable?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jhildenbiddle/docsify-themeable&amp;utm_campaign=Badge_Grade)
@@ -8,6 +10,10 @@
 <a class="github-button" href="https://github.com/jhildenbiddle/docsify-themeable" data-icon="octicon-star" data-show-count="true" aria-label="Star jhildenbiddle/docsify-themeable on GitHub">Star</a>
 
 ## 第一关-GET – 基于错误 – 单引号 – 字符型
+    可以在代码里sql语句下添加输出语句，更方便查看sql语句的效果
+      
+      $sql="SELECT * FROM users WHERE id='$id' LIMIT 0,1";
+      echo "your sql statement is ".$sql."<br>";   
 **1.添加id=1正常，id=1' 报错，报错，发现报错信息多出一个单引号，后面闭合语句也是用的单引号发现页面返回正常，说明是字符型注入，单引号。**
 ```
 http://192.168.2.135/sqli/Less-1/?id=1'

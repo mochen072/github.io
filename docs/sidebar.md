@@ -11,6 +11,8 @@
 - [Changelog](changelog)
 - **靶场演示**
 - [SQLI](SQLI)
+- **读书笔记，胡言乱语**
+- [《渗透测试完全初学者指南》](stcszn)
 - **GitHub**
 - [GitHub](GitHub)
 - **Gitb**
