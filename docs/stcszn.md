@@ -82,7 +82,7 @@
 
 - Kali中安装步骤:
         ...
-### 第一章完
+
 ## 第二章 使用kali Linux
 ### Linux命令行
         ls      #查看当前目录下文件
@@ -179,8 +179,10 @@ ifconfig
 
 ### Netcat——————TCP/IP连接的瑞士军刀
         查看kali栏目
-### 第二章完
 
+## 第四章 Metasploit框架
+- 启动Metasploit
+        msfconsole
 
 
 
