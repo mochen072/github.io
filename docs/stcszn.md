@@ -183,6 +183,52 @@ ifconfig
 ## 第四章 Metasploit框架
 - 启动Metasploit
         msfconsole
+- Metasploit的帮助信息
+        help route
+</figure>
+     <figure class="thumbnails">
+    <img src="picture/msf/msf1.png" alt="Screenshot of coverpage" title="Cover page">
+
+</figure>
+
+### 1.查找Metasploit模块
+- <font color = #FF4500>1.1这里以ms08-067为例</font><BR>
+</figure>
+     <figure class="thumbnails">
+    <img src="picture/msf/msf2.png" alt="Screenshot of coverpage" title="Cover page">
+
+</figure>
+- <font color = #FF4500>1.2模块验证</font><BR>
+- <font color = #FF4500>可以看到①这里有具体的位置</font><BR>
+
+        info <模块名称>
+
+</figure>
+     <figure class="thumbnails">
+        <img src="picture/msf/3.png" alt="Screenshot of coverpage" title="Cover page">
+        <img src="picture/msf/4.png" alt="Screenshot of coverpage" title="Cover page">
+</figure>
+
+
+  - ①：名称
+  - ②：模块路径
+  - ③：平台信息
+  - ④：权限信息-代表：是否需要事先以目标主机的管理员权限运行exploit，才可以利用这个漏洞
+  - ⑤：评级信息：代表该exploit对目标主机的影响程度。
+  - ⑥：系统适用性信息，代表exploit适用于测试哪些操作系统
+  - ⑦：基本选项-是调用模块时必须设置的选项
+  - ⑧：有效载荷-用于帮助Metasploit选取有效载荷
+  - ⑨：模块介绍：介绍相应的漏洞的详细介绍
+  - ⑩：是在线漏洞数据库的网络连接<BR>
+ <font color = #FF0000>1.选定了合适的模块之后，首先指定Metasploit的攻击模块</font><BR>
+ 
+</figure>
+     <figure class="thumbnails">
+        <img src="picture/msf/5.png" alt="Screenshot of coverpage" title="Cover page">
+</figure>
+
+
+
 
 
 
