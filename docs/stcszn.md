@@ -293,16 +293,161 @@ ifconfig
  ### 7.其他
 
 - ①：关闭shell的命令————Ctrl+C
-	
+
 ## <font color = #1E90FF>第五章 信息收集</font>
+本章介绍渗透测试的详细收集工作
+
+### <font color = #FF0000>Netcraft</font>
+- 一个网站
+        https://www.netcraft.com
+- ①记录网站的在线时间
+- ②分析web服务的底层信息
+- ③支持浏览器扩展
+</figure>
+     <figure class="thumbnails">
+        <img src="picture/Netcratf/1.png" alt="Screenshot of coverpage" title="Cover page">
+</figure>
+
+### <font color = #FF0000>Whois</font>
+__所有的域名注册上都会保留自己注册过的域名记录__
+  
+```
+语法： whois 域名
+例： whois baidu.com
+```      
+</figure>
+     <figure class="thumbnails">
+        <img src="picture/two/1.png" alt="Screenshot of coverpage" title="Cover page">
+</figure>
+
+- ① 域名解析服务器
+
+### <font color = #FF0000>DNS侦查</font> 
+__我们可以通过DNS系统了解既定域名的很多信息，简单来说，DNS服务器的作用就是把URL中的域名转换为相应的IP__
+
+- 1.nslookup—查询域名
+        语法： nslookup 域名
+</figure>
+     <figure class="thumbnails">
+        <img src="picture/two/11.png" alt="Screenshot of coverpage" title="Cover page">
+</figure>
+
+- ①返回了IP地址
+
+- 2.Host—查询DNS信息
+        语法： host -t ns domain
+        例：    host -t ns baidu.com
+</figure>
+     <figure class="thumbnails">
+        <img src="picture/two/4.png" alt="Screenshot of coverpage" title="Cover page">
+</figure>
+
+- 2.1 Host-区域传输
+—__所谓区域传输,就是某个域的DNS服务器允许其他域名解析服务器复制他的全部DNS__
+        语法： host -l 域名 DNS服务器名
+        例：    host -l baidu.com ns2.baidu.com
+</figure>
+     <figure class="thumbnails">
+        <img src="picture/two/5.png" alt="Screenshot of coverpage" title="Cover page">
+</figure>
+
+### <font color = #FF0000>收集邮箱地址</font> 
+- 1.theHarvester——在搜索引擎中只能收集邮箱
+        语法：  theharvester -d 域名 -l 500 -b all
+        例：    theharvester -d baidu.com -l 500 -b all
+
+- 2. Maltego
+```
+以后再做。。。花里胡哨
+```  
 
 
+### <font color = #FF0000>端口扫描</font> 
+#### 手动端口扫描
+- 可以利用 Netcat，Telnet之类的来进行人工扫描
+        语法： nc -vv IP
+        例：   nc -vv 192.168.2.197
+<table><tr><td bgcolor=PowderBlue>懒得开靶机。。</td></tr></table>
 
+### <font color = #FF0000>Nmap端口扫描</font> 
 
+- __SYN扫描<BR>__
+__是一种模拟TCP握手的端口扫描技术<BR>__
+ __在进行扫描时，Nmap向远程主机发送SYN数据包，并等待对方的SYN-ACK数据<BR>__
+ __不过对方技术发送了SYN-ACK数据，它也不会回复ACK数据完成三次握手<BR>__
+<table><tr><td bgcolor=PowderBlue>注：如果发送了SYN没有收到SYN-ACK数据就说明主机不在线</td></tr></table>
 
+```
+命令： nmap -sS 主机名
+例：   nmap -sS 192.168.2.207
+```  
+- 可以看见扫描出了端口和对应的服务，存活的主机
+</figure>
+     <figure class="thumbnails">
+        <img src="picture/nmap/1.png" alt="Screenshot of coverpage" title="Cover page">
+</figure>
 
+- <font color = #FF0000>虽然SYN扫描有着某种隐蔽性，但不能显示出打开这些端口程序的版本，这个时候可以使用完整的TCP扫描功能<BR>- sT 或者版本检测 -sV</font> 
 
+```
+命令： nmap -sV 主机名
+例：   nmap -sV 192.168.2.207
+命令： nmap -sT 主机名
+例：   nmap -sT 192.168.2.207
+```  
+</figure>
+     <figure class="thumbnails">
+        <img src="picture/nmap/2.png" alt="Screenshot of coverpage" title="Cover page">
+        <img src="picture/nmap/3.png" alt="Screenshot of coverpage" title="Cover page">
+</figure>
+<table><tr><td bgcolor=PowderBlue>注：nmap分析的结果可能不太准确</td></tr></table>
 
+- __UDP扫描<BR>__
+顾名思义，SYN扫描和完整的TCP扫描都不能扫描UDP端口。<BR>
+UDP协议采用的是无连接的方式传输数据，因此UDP端口的扫描逻辑和TCP端口的扫描逻辑存在明显区别<BR>
+__在进行UDP扫描<BR>__
+向既定端口发送UDP包，不过UDP协议的应用程序有着各自不同的数据传输协议<BR>
+因此，在远程主机正常回复该数据的情况下，能过确定端口开放状态<BR>
+如果端口处于关闭状态，Nmap应该能够收到ICMP协议的‘端口不可到达’信息<BR>
 
+```
+命令： nmap -sU 主机名
+例：   nmap -sU 192.168.2.207
 
+``` 
+</figure>
+     <figure class="thumbnails">
+        <img src="picture/nmap/4.png" alt="Screenshot of coverpage" title="Cover page">
+       
+</figure>
 
+- __扫描指定端口<BR>__
+
+```
+命令： nmap -sS -p 端口 主机名
+例：   nmap -sS -p 80  192.168.2.207
+
+``` 
+</figure>
+     <figure class="thumbnails">
+        <img src="picture/nmap/5.png" alt="Screenshot of coverpage" title="Cover page">
+       
+</figure>
+
+- __扫描指定端口的程序版本<BR>__
+
+```
+命令： nmap  -p  端口 -SV 主机名
+例：   nmap  -p 80 -sV 192.168.2.207
+
+``` 
+</figure>
+     <figure class="thumbnails">
+        <img src="picture/nmap/6.png" alt="Screenshot of coverpage" title="Cover page">
+       
+</figure>
+
+## <font color = #1E90FF>第六章 漏洞检测 </font>
+
+### <font color = #FF0000>Nessus</font> 
+        不想写。。
