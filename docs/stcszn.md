@@ -451,3 +451,104 @@ __在进行UDP扫描<BR>__
 
 ### <font color = #FF0000>Nessus</font> 
         不想写。。
+
+### <font color = #FF0000>Nmap脚本引擎（NSE）</font> 
+ __Nmap脚本引擎是一种其他机制的漏洞扫描工具<BR>__
+ - __自带的脚本存放在kali系统的/usr/share/nmap/scripts<BR>__
+ - __如果想了解脚本的详细详细，可使用 --script-help<BR>__
+
+```
+命令： --script-help
+例：   nmap  --script-help default
+``` 
+ </figure>
+     <figure class="thumbnails">
+        <img src="picture/nmapscript/1.png" alt="Screenshot of coverpage" title="Cover page">
+        <img src="picture/nmapscript/2.png" alt="Screenshot of coverpage" title="Cover page">
+       
+</figure>
+
+- Nmap的 -sC 选项将令 Nmap在完成端口扫描之后运行默认的全部脚本。
+
+```
+命令： -sC
+例：   nmap  -sC 192.168.2.207
+``` 
+ </figure>
+     <figure class="thumbnails">
+        <img src="picture/nmapscript/3.png" alt="Screenshot of coverpage" title="Cover page">
+  
+</figure>
+
+- 运行单独的NSE脚本——NFS-LS
+
+```
+命令： --script=nfs-ls IP
+例：   nmap  --script=nfs-ls 192.168.2.178
+``` 
+<font color = #FF0000>这个脚本具有远程连接共享，审计共享权限以及列出共享文件的功能</font> 
+
+ </figure>
+     <figure class="thumbnails">
+        <img src="picture/nmapscript/4.png" alt="Screenshot of coverpage" title="Cover page">
+  
+</figure>
+
+### <font color = #FF0000>Metasploit的扫描器模块</font> 
+__这项辅助模块与exploit有着根本的区别，它们不能用来控制目标主机。__<BR>
+__在操作时，可以使用use命令直接选定辅助模块，在通过set命令设定目标网段，然后用exploit命令启动扫描任务。__<BR>
+- __以FTP服务器是否存在匿名登录问题的扫描模块为例。__<BR>
+
+```
+命令1： msfconsole  #运行msf
+命令2： use scanner/ftp/anonymous       #指定脚本
+命令3： info       #查看详细信息
+命令4： set RHOSTS 192.168.2.178        #设置目标ip
+命令5： exploit                 #运行
+``` 
+ </figure>
+     <figure class="thumbnails">
+        <img src="picture/msf/10.png" alt="Screenshot of coverpage" title="Cover page">
+        <img src="picture/msf/11.png" alt="Screenshot of coverpage" title="Cover page">
+        <img src="picture/msf/12.png" alt="Screenshot of coverpage" title="Cover page">
+</figure>
+
+### <font color = #FF0000>Metasploit漏洞检验功能</font> 
+__Metasploit中的部分exploit带有漏洞检验（check）功能。可直接连接到指定主机检测既定漏洞是否存在__<BR>
+<table><tr><td bgcolor=PowderBlue>注：并不能直接利用漏洞</td></tr></table>
+
+- Ms08-067的check功能
+ 
+```
+命令1： use windows/smb/ms08_067_netapi  #指定exploit
+命令2： set RHOSTS 192.168.2.178        #设置目标ip
+命令3： check                 #漏洞检验
+```  
+<table><tr><td bgcolor=PowderBlue>注：没搭实验环境，将就看吧。。。。</td></tr></table>  
+ </figure>
+     <figure class="thumbnails">
+        <img src="picture/msf/14.png" alt="Screenshot of coverpage" title="Cover page">
+
+</figure>  
+
+### <font color = #FF0000>Web应用程序扫描</font> 
+#### <font color = #FF0000>Nikto</font>
+__Nikto是一款被kali收录的Web应用程序扫描器__<BR> 
+- 使用 -h 设置目标 IP
+```
+命令： -h IP
+例：   nikto -h 192.168.2.178
+``` 
+<table><tr><td bgcolor=PowderBlue>注：没搭实验环境，将就看吧。。。。</td></tr></table>  
+ </figure>
+     <figure class="thumbnails">
+        <img src="picture/msf/1.png" alt="Screenshot of coverpage" title="Cover page">
+
+</figure>
+
+#### <font color = #FF0000>人工分析</font>
+__在所有自动化监测手段都不能监测出安全问题的情况下，就要进行人工监检测了__<BR> 
+- 检测非标准端口
+- 使用netcat连接到既定端口
+
+## <font color = #1E90FF>第七章 流量捕获 </font>

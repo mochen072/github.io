@@ -6,7 +6,6 @@
 - **漏洞原理**
 - [SQL注入](SQL)
 - [Customization](customization)
-- [Options](options)
 - [Markdown](markdown)
 - [Changelog](changelog)
 - **靶场演示**
