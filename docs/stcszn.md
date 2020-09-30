@@ -534,6 +534,7 @@ __Metasploit中的部分exploit带有漏洞检验（check）功能。可直接�
 ### <font color = #FF0000>Web应用程序扫描</font> 
 #### <font color = #FF0000>Nikto</font>
 __Nikto是一款被kali收录的Web应用程序扫描器__<BR> 
+
 - 使用 -h 设置目标 IP
 ```
 命令： -h IP

@@ -1,5 +1,5 @@
 - **网络**
-- [网络](introduction)
+- [网络基础](internet)
 - **Linux**
 - [Linux](Linux)
 - [Kali Linux](themes)
