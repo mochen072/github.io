@@ -19,7 +19,7 @@
 http://192.168.2.135/sqli/Less-1/?id=1'
 ```
   <figure class="thumbnails">
-    <img src="assets/img/sqli第一关.png" alt="Screenshot of coverpage" title="Cover page">
+    <img src="assets/img/sqli第一关.png"   >
     
 </figure>
 
@@ -29,7 +29,7 @@ http://192.168.2.135/sqli/Less-1/?id=1' --+
 ```
 
   <figure class="thumbnails">
-    <img src="assets/img/sqli第一关1.png" alt="Screenshot of coverpage" title="Cover page">
+    <img src="assets/img/sqli第一关1.png"   >
     
 </figure>
 
@@ -39,7 +39,7 @@ http://192.168.2.135/sqli/Less-1/?id=1' order by 3--+
 ```
 
   <figure class="thumbnails">
-    <img src="assets/img/sqli第一关2.png" alt="Screenshot of coverpage" title="Cover page">
+    <img src="assets/img/sqli第一关2.png"   >
     
 </figure>
 
@@ -49,7 +49,7 @@ http://192.168.2.135/sqli/Less-1/?id=-1' union select 1,2,3--+
 ```
 
   <figure class="thumbnails">
-    <img src="assets/img/sqli第一关3.png" alt="Screenshot of coverpage" title="Cover page">
+    <img src="assets/img/sqli第一关3.png"   >
     
 </figure>
 
@@ -61,7 +61,7 @@ http://192.168.2.135/sqli/Less-1/?id=-1' union select 1,
 ```
 
   <figure class="thumbnails">
-    <img src="assets/img/sqli第一关4.png" alt="Screenshot of coverpage" title="Cover page">
+    <img src="assets/img/sqli第一关4.png"   >
     
 </figure>
 
@@ -73,7 +73,7 @@ http://192.168.2.135/sqli/Less-1/?id=-1' union select 1,
 ```
 
   <figure class="thumbnails">
-    <img src="assets/img/sqli第一关5.png" alt="Screenshot of coverpage" title="Cover page">
+    <img src="assets/img/sqli第一关5.png"   >
     
 </figure>
 
@@ -87,7 +87,7 @@ http://192.168.2.135/sqli/Less-1/?id=-1' union select 1,
 ```
 
   <figure class="thumbnails">
-    <img src="assets/img/sqli第一关6.png" alt="Screenshot of coverpage" title="Cover page">
+    <img src="assets/img/sqli第一关6.png"   >
     
 </figure>
 
@@ -99,7 +99,7 @@ http://192.168.2.135/sqli/Less-1/?id=-1' union select 1,
 ```
 
   <figure class="thumbnails">
-    <img src="assets/img/sqli第一关8.png" alt="Screenshot of coverpage" title="Cover page">
+    <img src="assets/img/sqli第一关8.png"   >
     
 </figure>
 
@@ -111,7 +111,7 @@ http://192.168.2.135/sqli/Less-1/?id=-1' union select 1,2,
 ```
 
   <figure class="thumbnails">
-    <img src="assets/img/sqli第一关7.png" alt="Screenshot of coverpage" title="Cover page">
+    <img src="assets/img/sqli第一关7.png"   >
     
 </figure>
 

@@ -14,7 +14,7 @@ Kali Linux是基于Debian的Linux发行版， 设计用于数字取证操作系�
     
    <center> arp攻击原理</center>
 <figure class="thumbnails">
-    <img src="assets/img/通信方式1.png" alt="Screenshot of coverpage" title="Cover page">
+    <img src="assets/img/通信方式1.png"   >
     
 </figure>
 
@@ -43,12 +43,12 @@ kali      192.168.2.244
 ```
 #### <center> Kali</center>  
 <figure class="thumbnails">
-    <img src="assets/img/Kali.png" alt="Screenshot of coverpage" title="Cover page">
+    <img src="assets/img/Kali.png"   >
 </figure>
 
 #### <center> 目标主机</center>  
 <figure class="thumbnails">
-    <img src="assets/img/目标主机.png" alt="Screenshot of coverpage" title="Cover page">
+    <img src="assets/img/目标主机.png"   >
 </figure>
 
 
@@ -89,16 +89,16 @@ kali      192.168.2.244
         service nessusd start
   - 在浏览器中访问https://localhost:8834，初始化扫描器，选择Managed Scanner→Managed by Tenable.sc，点击 Continue。
     <figure class="thumbnails">
-    <img src="nessus/1.png" alt="Screenshot of coverpage" title="Cover page">
-     <img src="nessus/2.png" alt="Screenshot of coverpage" title="Cover page">
+    <img src="nessus/1.png"   >
+     <img src="nessus/2.png"   >
 
 </figure>
 
   - 现在会要求新建账号，自己记住账号密码
   - 等待初始化完成。完成后登陆进去是没有扫描界面的。
      <figure class="thumbnails">
-    <img src="nessus/3.png" alt="Screenshot of coverpage" title="Cover page">
-    <img src="nessus/4.png" alt="Screenshot of coverpage" title="Cover page">
+    <img src="nessus/3.png"   >
+    <img src="nessus/4.png"   >
 
 </figure>
 
@@ -106,7 +106,7 @@ kali      192.168.2.244
       /opt/nessus/sbin/nessuscli fetch --challenge
 </figure>
      <figure class="thumbnails">
-    <img src="nessus/5.png" alt="Screenshot of coverpage" title="Cover page">
+    <img src="nessus/5.png"   >
 </figure>
 
 - 访问上面输出的网址https://plugins.nessus.org/v2/offline.php，<bR> 把challenge code填入第一个框：
@@ -114,16 +114,16 @@ kali      192.168.2.244
 - 点击注册后，过大约一分钟左右，邮箱收到邮件，找到激活码，复制：把激活码贴到第二个框，点submit：
 </figure>
      <figure class="thumbnails">
-    <img src="nessus/6.png" alt="Screenshot of coverpage" title="Cover page">
-    <img src="nessus/7.png" alt="Screenshot of coverpage" title="Cover page">
-    <img src="nessus/8.png" alt="Screenshot of coverpage" title="Cover page">
-    <img src="nessus/9.png" alt="Screenshot of coverpage" title="Cover page">
+    <img src="nessus/6.png"   >
+    <img src="nessus/7.png"   >
+    <img src="nessus/8.png"   >
+    <img src="nessus/9.png"   >
 </figure>
 
 - 注册成功后网页返回更新包的下载链接，在浏览器输入上述链接就可以下载最新插件包：
 </figure>
      <figure class="thumbnails">
-    <img src="nessus/10.png" alt="Screenshot of coverpage" title="Cover page">
+    <img src="nessus/10.png"   >
 
 </figure>
 
@@ -131,7 +131,7 @@ kali      192.168.2.244
       /opt/nessus/sbin/nessuscli update all-2.0.tar.gz
 </figure>
      <figure class="thumbnails">
-    <img src="nessus/11.png" alt="Screenshot of coverpage" title="Cover page">
+    <img src="nessus/11.png"   >
 
 </figure>
 
@@ -152,7 +152,7 @@ kali      192.168.2.244
       EOF
 </figure>
      <figure class="thumbnails">
-    <img src="nessus/12.png" alt="Screenshot of coverpage" title="Cover page">
+    <img src="nessus/12.png"   >
 
 </figure>
 

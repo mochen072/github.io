@@ -148,7 +148,7 @@ ifconfig
 
 </figure>
      <figure class="thumbnails">
-    <img src="picture/two/22.png" alt="Screenshot of coverpage" title="Cover page">
+    <img src="picture/two/22.png">
 
 </figure>
 
@@ -164,7 +164,7 @@ ifconfig
 - address IP地址
 </figure>
      <figure class="thumbnails">
-    <img src="picture/two/2.png" alt="Screenshot of coverpage" title="Cover page">
+    <img src="picture/two/2.png" >
 
 </figure>
 
@@ -173,7 +173,7 @@ ifconfig
 
 </figure>
      <figure class="thumbnails">
-    <img src="picture/two/3.png" alt="Screenshot of coverpage" title="Cover page">
+    <img src="picture/two/3.png" >
 
 </figure>
 
@@ -187,7 +187,7 @@ ifconfig
         help route
 </figure>
      <figure class="thumbnails">
-    <img src="picture/msf/msf1.png" alt="Screenshot of coverpage" title="Cover page">
+    <img src="picture/msf/msf1.png">
 
 </figure>
 
@@ -195,7 +195,7 @@ ifconfig
 - <font color = #FF4500>1.1这里以ms08-067为例</font><BR>
 </figure>
      <figure class="thumbnails">
-    <img src="picture/msf/msf2.png" alt="Screenshot of coverpage" title="Cover page">
+    <img src="picture/msf/msf2.png">
 
 </figure>
 - <font color = #FF4500>1.2模块验证,查看模块详细信息</font><BR>
@@ -205,8 +205,8 @@ ifconfig
 
 </figure>
      <figure class="thumbnails">
-        <img src="picture/msf/3.png" alt="Screenshot of coverpage" title="Cover page">
-        <img src="picture/msf/4.png" alt="Screenshot of coverpage" title="Cover page">
+        <img src="picture/msf/3.png" >
+        <img src="picture/msf/4.png" >
 </figure>
 
 
@@ -224,7 +224,7 @@ ifconfig
  
 </figure>
      <figure class="thumbnails">
-        <img src="picture/msf/5.png" alt="Screenshot of coverpage" title="Cover page">
+        <img src="picture/msf/5.png">
 </figure>
 
 ### 2.设置模块选项
@@ -233,7 +233,7 @@ ifconfig
 
 </figure>
      <figure class="thumbnails">
-        <img src="picture/msf/7.png" alt="Screenshot of coverpage" title="Cover page">
+        <img src="picture/msf/7.png">
 </figure>
 
 - <font color = #FF0000>1.返回的清单从左到右依次是，选项名称，选项的默认值，是否是必填项，描述</font><BR>
@@ -254,7 +254,7 @@ ifconfig
 
 </figure>
      <figure class="thumbnails">
-        <img src="picture/msf/8.png" alt="Screenshot of coverpage" title="Cover page">
+        <img src="picture/msf/8.png" >
 </figure>
 
 ### 3.试运行    
@@ -280,7 +280,7 @@ ifconfig
 
 </figure>
      <figure class="thumbnails">
-        <img src="picture/msf/9.png" alt="Screenshot of coverpage" title="Cover page">
+        <img src="picture/msf/9.png">
 </figure>
 
 - ①：设置选定的载荷
@@ -305,7 +305,7 @@ ifconfig
 - ③支持浏览器扩展
 </figure>
      <figure class="thumbnails">
-        <img src="picture/Netcratf/1.png" alt="Screenshot of coverpage" title="Cover page">
+        <img src="picture/Netcratf/1.png" >
 </figure>
 
 ### <font color = #FF0000>Whois</font>
@@ -317,7 +317,7 @@ __所有的域名注册上都会保留自己注册过的域名记录__
 ```      
 </figure>
      <figure class="thumbnails">
-        <img src="picture/two/1.png" alt="Screenshot of coverpage" title="Cover page">
+        <img src="picture/two/1.png">
 </figure>
 
 - ① 域名解析服务器
@@ -329,7 +329,7 @@ __我们可以通过DNS系统了解既定域名的很多信息，简单来说，
         语法： nslookup 域名
 </figure>
      <figure class="thumbnails">
-        <img src="picture/two/11.png" alt="Screenshot of coverpage" title="Cover page">
+        <img src="picture/two/11.png">
 </figure>
 
 - ①返回了IP地址
@@ -339,7 +339,7 @@ __我们可以通过DNS系统了解既定域名的很多信息，简单来说，
         例：    host -t ns baidu.com
 </figure>
      <figure class="thumbnails">
-        <img src="picture/two/4.png" alt="Screenshot of coverpage" title="Cover page">
+        <img src="picture/two/4.png">
 </figure>
 
 - 2.1 Host-区域传输
@@ -348,7 +348,7 @@ __我们可以通过DNS系统了解既定域名的很多信息，简单来说，
         例：    host -l baidu.com ns2.baidu.com
 </figure>
      <figure class="thumbnails">
-        <img src="picture/two/5.png" alt="Screenshot of coverpage" title="Cover page">
+        <img src="picture/two/5.png" >
 </figure>
 
 ### <font color = #FF0000>收集邮箱地址</font> 
@@ -384,7 +384,7 @@ __是一种模拟TCP握手的端口扫描技术<BR>__
 - 可以看见扫描出了端口和对应的服务，存活的主机
 </figure>
      <figure class="thumbnails">
-        <img src="picture/nmap/1.png" alt="Screenshot of coverpage" title="Cover page">
+        <img src="picture/nmap/1.png"  >
 </figure>
 
 - <font color = #FF0000>虽然SYN扫描有着某种隐蔽性，但不能显示出打开这些端口程序的版本，这个时候可以使用完整的TCP扫描功能<BR>- sT 或者版本检测 -sV</font> 
@@ -397,8 +397,8 @@ __是一种模拟TCP握手的端口扫描技术<BR>__
 ```  
 </figure>
      <figure class="thumbnails">
-        <img src="picture/nmap/2.png" alt="Screenshot of coverpage" title="Cover page">
-        <img src="picture/nmap/3.png" alt="Screenshot of coverpage" title="Cover page">
+        <img src="picture/nmap/2.png"  >
+        <img src="picture/nmap/3.png"  >
 </figure>
 <table><tr><td bgcolor=PowderBlue>注：nmap分析的结果可能不太准确</td></tr></table>
 
@@ -417,7 +417,7 @@ __在进行UDP扫描<BR>__
 ``` 
 </figure>
      <figure class="thumbnails">
-        <img src="picture/nmap/4.png" alt="Screenshot of coverpage" title="Cover page">
+        <img src="picture/nmap/4.png"  >
        
 </figure>
 
@@ -430,7 +430,7 @@ __在进行UDP扫描<BR>__
 ``` 
 </figure>
      <figure class="thumbnails">
-        <img src="picture/nmap/5.png" alt="Screenshot of coverpage" title="Cover page">
+        <img src="picture/nmap/5.png"  >
        
 </figure>
 
@@ -443,7 +443,7 @@ __在进行UDP扫描<BR>__
 ``` 
 </figure>
      <figure class="thumbnails">
-        <img src="picture/nmap/6.png" alt="Screenshot of coverpage" title="Cover page">
+        <img src="picture/nmap/6.png"  >
        
 </figure>
 
@@ -463,8 +463,8 @@ __在进行UDP扫描<BR>__
 ``` 
  </figure>
      <figure class="thumbnails">
-        <img src="picture/nmapscript/1.png" alt="Screenshot of coverpage" title="Cover page">
-        <img src="picture/nmapscript/2.png" alt="Screenshot of coverpage" title="Cover page">
+        <img src="picture/nmapscript/1.png"  >
+        <img src="picture/nmapscript/2.png"  >
        
 </figure>
 
@@ -476,7 +476,7 @@ __在进行UDP扫描<BR>__
 ``` 
  </figure>
      <figure class="thumbnails">
-        <img src="picture/nmapscript/3.png" alt="Screenshot of coverpage" title="Cover page">
+        <img src="picture/nmapscript/3.png"  >
   
 </figure>
 
@@ -490,7 +490,7 @@ __在进行UDP扫描<BR>__
 
  </figure>
      <figure class="thumbnails">
-        <img src="picture/nmapscript/4.png" alt="Screenshot of coverpage" title="Cover page">
+        <img src="picture/nmapscript/4.png"  >
   
 </figure>
 
@@ -508,9 +508,9 @@ __在操作时，可以使用use命令直接选定辅助模块，在通过set命
 ``` 
  </figure>
      <figure class="thumbnails">
-        <img src="picture/msf/10.png" alt="Screenshot of coverpage" title="Cover page">
-        <img src="picture/msf/11.png" alt="Screenshot of coverpage" title="Cover page">
-        <img src="picture/msf/12.png" alt="Screenshot of coverpage" title="Cover page">
+        <img src="picture/msf/10.png"  >
+        <img src="picture/msf/11.png"  >
+        <img src="picture/msf/12.png"  >
 </figure>
 
 ### <font color = #FF0000>Metasploit漏洞检验功能</font> 
@@ -527,7 +527,7 @@ __Metasploit中的部分exploit带有漏洞检验（check）功能。可直接�
 <table><tr><td bgcolor=PowderBlue>注：没搭实验环境，将就看吧。。。。</td></tr></table>  
  </figure>
      <figure class="thumbnails">
-        <img src="picture/msf/14.png" alt="Screenshot of coverpage" title="Cover page">
+        <img src="picture/msf/14.png"  >
 
 </figure>  
 
@@ -543,7 +543,7 @@ __Nikto是一款被kali收录的Web应用程序扫描器__<BR>
 <table><tr><td bgcolor=PowderBlue>注：没搭实验环境，将就看吧。。。。</td></tr></table>  
  </figure>
      <figure class="thumbnails">
-        <img src="picture/msf/1.png" alt="Screenshot of coverpage" title="Cover page">
+        <img src="picture/msf/1.png"  >
 
 </figure>
 
@@ -553,3 +553,78 @@ __在所有自动化监测手段都不能监测出安全问题的情况下，就
 - 使用netcat连接到既定端口
 
 ## <font color = #1E90FF>第七章 流量捕获 </font>
+### <font color = #FF0000>Wireshark</font>
+
+ #### <font color = #FF0000>1.流量捕获 </font><BR>
+__Wireshark是一款具有图形界面的网络协议分析程序，他可以帮助用户深入网络中的每一个数据包，不仅可以捕获以太网，无线网的数据，还可以分析蓝牙和许多其他设备的流量。等等__
+```
+wireshark       #kali中启动wireshark
+```
+ </figure>
+     <figure class="thumbnails">
+        <img src="picture/wireshark/1.png"  >
+        <img src="picture/wireshark/2.png"  >
+
+</figure>
+
+<table><tr><td bgcolor=PowderBlue>注：若要在本地网络接口(eth0)捕获数据，依次单击【捕获（Capture）-->选项(Options)在弹出的对话框中选择eth0,不要勾选(在所有接口中使用混杂模式(Use promiscuous mode on all interfaces)) 】</td></tr></table>  
+ </figure>
+     <figure class="thumbnails">
+        <img src="picture/wireshark/3.png"  >
+</figure>
+
+#### <font color = #FF0000>2.流量过滤 </font><BR>
+ - 以筛选TCP所有数据包为例
+```
+在过滤器中输入tcp 并单击右边的箭头即可
+也可以采用复杂的过滤规则
+如：
+        ip.dst ==192.168.2.178  #查看目标IP为192.168.2.178的数据包
+```
+ </figure>
+     <figure class="thumbnails">
+        <img src="picture/wireshark/4.png" >
+         <img src="picture/wireshark/5.png" >
+</figure>
+
+ #### <font color = #FF0000>3.查看TCP会话 </font><BR>
+ ```
+ 找到数据包后，右键单击并选择Follow TCP Stream
+ 即可分析整个TCP会话
+ ```
+  </figure>
+     <figure class="thumbnails">
+        <img src="picture/wireshark/6.png" >
+   
+</figure>
+
+ ### <font color = #FF0000>2.ARP缓存攻击 </font><BR>
+ __为了捕获那些本来不该被本机系统看到的网络数据，我们需要想办法让其他主机把数据包发送到Kali系统中<BR>交换机只会让我们收到那些原本就发送给我们的数据包，依次需要正对目标及其或交换机采取一些技术手段<BR>这就是中间人攻击__
+ <table><tr><td bgcolor=PowderBlue>这种攻击首先使用本机中转并拦截其他主机间的流量，然后再把原有数据包转发给原本的收发双方，从而实现流量捕获，换句话说，这是一种伪装成另一个设备的攻击方法，目前业内普遍采用地址解析协议(ARP)也称为ARP欺骗</td></tr></table>  
+
+ #### <font color = #FF0000>1.arp基础</font><BR>
+ 
+- ①当连接本地网络上的其他主机时，通常通过其主机名，完全限定的域名(FQDN)或IP地址进行连接
+- ②在一个数据包从kali发往xp之前，要确定xp的ip,网卡，mac
+```
+kali在本地网络上广播 “谁的IP是192.168.2.107？？？”
+ip为192.168.2.107的主机就会回应自己的IP和mac地址
+```
+- 实验环境：kali , xp
+<table><tr><td bgcolor=PowderBlue>当发送下一个数据包时，kali首先在ARP缓存中查找192.168.2.107的对应条目<BR>如果存在，就直接使用，不在单独发送另一条ARP广播，但ARP缓存也会定期清空</td></tr></table>  
+```
+arp     #查看ARP缓存记录
+```
+
+#### <font color = #FF0000>2.IP转发</font><BR>
+        Kali栏目
+#### <font color = #FF0000>3.ARP缓存攻击与Arpspoof</font><BR>
+        Kali栏目
+#### <font color = #FF0000>4.DNS缓存攻击</font><BR>
+#### <font color = #FF0000>4.Dnsspoof</font><BR>
+        Kali栏目
+#### <font color = #FF0000>5.Ettercap进行中间人攻击</font><BR>
+        Kali栏目
+#### <font color = #FF0000>6.SSl Stripping</font><BR>
+        Kali栏目
+## <font color = #1E90FF>第八章 漏洞利用</font>

@@ -74,7 +74,7 @@
       ls -l;ls -a
 
   <figure class="thumbnails">
-    <img src="picture/linuxShell/shell1.png" alt="Screenshot of coverpage" title="Cover page">
+    <img src="picture/linuxShell/shell1.png"  >
     
 </figure>
 
@@ -83,7 +83,7 @@
       > word! "               # > 符号是系统生成的。。。
 
   <figure class="thumbnails">
-    <img src="picture/linuxShell/shell2.png" alt="Screenshot of coverpage" title="Cover page">
+    <img src="picture/linuxShell/shell2.png"  >
     
 </figure>
 
@@ -110,8 +110,8 @@ chmod +x demo1.sh       #赋予权限
 bash demo1.sh     #执行方式2
 ```
 <figure class="thumbnails">
-    <img src="picture/linuxShell/shell3.png" alt="Screenshot of coverpage" title="Cover page">
-    <img src="picture/linuxShell/shell4.png" alt="Screenshot of coverpage" title="Cover page">
+    <img src="picture/linuxShell/shell3.png"  >
+    <img src="picture/linuxShell/shell4.png"  >
     
 </figure>
 
@@ -147,7 +147,7 @@ echo "前三个参数:$1 $2 $3 "
 exit 0
 ```
 <figure class="thumbnails">
-    <img src="picture/linuxShell/shell6.png" alt="Screenshot of coverpage" title="Cover page">
+    <img src="picture/linuxShell/shell6.png"  >
     
 </figure>
 
@@ -167,7 +167,7 @@ variable='value'
 variable="value"
 ```
 <figure class="thumbnails">
-    <img src="picture/linuxShell/shell7.png" alt="Screenshot of coverpage" title="Cover page">
+    <img src="picture/linuxShell/shell7.png"  >
     
 </figure>
 <!-- GitHub Buttons -->

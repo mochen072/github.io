@@ -4,7 +4,7 @@
 
 
   <figure class="thumbnails">
-    <img src="assets/img/元数据库.png" alt="Screenshot of coverpage" title="Cover page">
+    <img src="assets/img/元数据库.png"   >
     
 </figure>
 
@@ -12,7 +12,7 @@
 
 
   <figure class="thumbnails">
-    <img src="assets/img/解析.png" alt="Screenshot of coverpage" title="Cover page">
+    <img src="assets/img/解析.png"   >
     
 </figure>
 
@@ -162,8 +162,7 @@ Note that only PrismJS theme colors will be applied. Layout and typography style
 
 The [theme properties](#theme) that override PrismJS theme values are:
 
-- `--code-font-family`
-- `--code-font-size`
+- `--code-font-family` `s `- `--code-font-size`
 - `--code-font-weight`
 - `--code-block-border-radius`
 - `--code-block-line-height`
