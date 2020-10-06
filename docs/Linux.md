@@ -7,33 +7,7 @@
 [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?url=https%3A%2F%2Fgithub.com%2Fjhildenbiddle%2Fdocsify-themeable&hashtags=css,docsify,developers,frontend)
 <a class="github-button" href="https://github.com/jhildenbiddle/docsify-themeable" data-icon="octicon-star" data-show-count="true" aria-label="Star jhildenbiddle/docsify-themeable on GitHub">Star</a>
 
-## Kali更新源
-
-
-       #中科大
-      deb http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib
-      deb-src http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib
-
-      #阿里云
-      deb http://mirrors.aliyun.com/kali kali-rolling main non-free contrib
-      deb-src http://mirrors.aliyun.com/kali kali-rolling main non-free contrib
-
-      #清华大学
-      deb http://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main contrib non-free
-      deb-src https://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main contrib non-free
-
-      #浙大
-      deb http://mirrors.zju.edu.cn/kali kali-rolling main contrib non-free
-      deb-src http://mirrors.zju.edu.cn/kali kali-rolling main contrib non-free
-
-      #东软大学
-      deb http://mirrors.neusoft.edu.cn/kali kali-rolling/main non-free contrib
-      deb-src http://mirrors.neusoft.edu.cn/kali kali-rolling/main non-free contrib
-
-
-
-
-## CentOS基本命令
+## <font color = #1E90FF>CentOS基本命令</font>
 
       
    * <font color=#8B0000 size=4 >linux操作系统树状结构，目录==文件夹</font>
@@ -69,7 +43,7 @@
          ctrl+l	清屏
          ctrl+c	终止
 
-## Shell基础
+## <font color = #1E90FF>Shell基础</font>
 * <font color=#FF0000 size=4 >1.执行shell命令的过程中，几个命令可以同时写在同一个命令行中，但需要用分号（ ; ） 分割开</font>
       ls -l;ls -a
 

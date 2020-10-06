@@ -3,7 +3,7 @@
 - [网络协议](internetxy)
 - **Linux**
 - [Linux](Linux)
-- [Kali Linux](themes)
+- [Kali Linux](kali)
 - **前端**
 - [HTML](html)
 - [CSS](css)

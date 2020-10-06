@@ -1,4 +1,29 @@
-## ARP攻击及原理
+## <font color = #1E90FF>Kali更新源</font>
+
+
+       #中科大
+      deb http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib
+      deb-src http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib
+
+      #阿里云
+      deb http://mirrors.aliyun.com/kali kali-rolling main non-free contrib
+      deb-src http://mirrors.aliyun.com/kali kali-rolling main non-free contrib
+
+      #清华大学
+      deb http://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main contrib non-free
+      deb-src https://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main contrib non-free
+
+      #浙大
+      deb http://mirrors.zju.edu.cn/kali kali-rolling main contrib non-free
+      deb-src http://mirrors.zju.edu.cn/kali kali-rolling main contrib non-free
+
+      #东软大学
+      deb http://mirrors.neusoft.edu.cn/kali kali-rolling/main non-free contrib
+      deb-src http://mirrors.neusoft.edu.cn/kali kali-rolling/main non-free contrib
+
+
+
+## <font color = #1E90FF>ARP攻击及原理</font>
 
 Kali Linux是基于Debian的Linux发行版， 设计用于数字取证操作系统.
 
@@ -74,7 +99,7 @@ kali      192.168.2.244
 
       ARP本省不能形成多大的损害，一旦被联系使用，其风险性就不可估量，因为ARP自身的疑问，使得防备ARP的攻击很棘手，经常检查当时的网络状况，监控流量对一个站长来说是个很好的风气
     
-## Nessus 8.1 破解安装
+## <font color = #1E90FF>Nessus 8.1 破解安装</font>
 <font color =#FF4500 size=9px> Nessus 是目前全世界最多人使用的系统漏洞扫描与分析软件。总共有超过75,000个机构使用Nessus 作为扫描该机构电脑系统的软件。
 </font><br>
  
@@ -164,7 +189,7 @@ kali      192.168.2.244
 进行定期自动更
 </font><br>
 
-## Netcat—TCP/IP连接的瑞士军刀
+## <font color = #1E90FF>Netcat—TCP/IP连接的瑞士军刀</font>
     nc -h     #查看帮助命令
 <font color = #FF4500>1.使用Netcat程序连接摸个端口，可判断噶一端口是否可受理网络连接</font><BR>
 ```netcat
