@@ -5,7 +5,7 @@
 
   <figure class="thumbnails">
     <img src="assets/img/元数据库.png"   >
-    
+
 </figure>
 
 ## MySQL语句解析
@@ -13,13 +13,13 @@
 
   <figure class="thumbnails">
     <img src="assets/img/解析.png"   >
-    
+
 </figure>
 
 
 ## MySQL常用内置函数
 
-| 函数名称 | 函数功能 | 
+| 函数名称 | 函数功能 |
 | :------ | :------ |
 | system.user() |  系统用户名 |
 | user() |  用户名 |
@@ -45,7 +45,7 @@
 
 ## MYSQL常用函数
 
-| 函数名称 | 函数功能 | 
+| 函数名称 | 函数功能 |
 | :------ | :------ |
 |left()  |返回字符串最左边的几个字符   |
 |floor()  |返回小于或等于x的最大整数   |

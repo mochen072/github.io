@@ -22,6 +22,7 @@
       - <P>交换机，网线，其他终端 <P> 
 
   - **交换机：** <br>
+      
       - <P>用来组建内网的局域网的设备 <P> 
 
 ### IP
@@ -29,7 +30,7 @@
 
 ### 子网掩码：	
 **局域网通信规则:** <br>
-  
+
 <font color = #FF0000>在同一局域网中，所有的IP必须在同一网段中才可以互相通信</font>
 - IP地址构成：<font color = #FF0000>网络位+主机位（网络位相同的IP地址 ，为同一网段）</font>
 - 子网掩码：<font color = #FF0000>用来确定IP地址的网络位</font>
@@ -42,7 +43,6 @@
 
 <!-- GitHub Buttons -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
-
 ### Ip地址5大类
 
 ```
@@ -52,9 +52,8 @@ C   192-223     默认子网掩码：255.255.255.0
 D   224-269     组播地址
 E   240-254     科研地址
 
-``` 
+```
 <table><tr><td bgcolor=PowderBlue>注：127.0.0.1指的是本机</td></tr></table>
-
 __<font color = #FF0000>案例1：</font><BR>10.1.1.1<BR>255.255.0.0<BR>属于哪个网段？所在广播地址？ 可用范围？__
 ```
 答：	网段：	    10.1.0.0
@@ -90,7 +89,6 @@ __<font color = #FF0000>案例1：</font><BR>10.1.1.1<BR>255.255.0.0<BR>属于�
 
 ```
 <table><tr><td bgcolor=PowderBlue>注：如ping不同，可能对方不在线或者对方开了防火墙</td></tr></table>
-
 - __3. 手工解析域名__
 ```
 Nslookup  www.jd.com    #手工解析域名IP地址
@@ -230,13 +228,12 @@ __<font color = #FF0000>每一个用户登录都有自己唯一的SID(安全标�
 ``` 
     windows系统管理员aministrator的UID	500
     普通用户	从1000开始
- ```
+```
  ```
 whoami /user	    #查看 SID值
 账号密码存储位置:	c:\windows\system32\config\SAM	#暴力破解/撞库
  ```
 <table><tr><td bgcolor=PowderBlue>注：	windows系统上，默认密码有效期42天	</td></tr></table> 
-
 ```
 net user	    #查看所有用户
 net user admin	    #查看admin详细信息

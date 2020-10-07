@@ -10,8 +10,10 @@
 - [JavaScript](javaScript)
 - **后端**
 - [PHP](php)
-- **漏洞原理**
-- [SQL注入](SQL)
+- **资产收集**
+- [信息收集](xxsj)
+- **数据库**
+- [MySql](SQL)
 - **靶场演示**
 - [SQLI](SQLI)
 - **读书笔记，胡言乱语**

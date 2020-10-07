@@ -14,7 +14,7 @@
     * 提倡HTML CSS分离
 
 - __CSS样式__
-    
+  
 ```css
 color	            #元素内容的颜色
 background-color	#元素内容的背景色
@@ -46,5 +46,6 @@ font-size	        #字体大小
     </style>
     ```
 - **3.外部样式**
+    
     * 单独作为一个文件
 

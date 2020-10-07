@@ -612,6 +612,7 @@ ip为192.168.2.107的主机就会回应自己的IP和mac地址
 ```
 - 实验环境：kali , xp
 <table><tr><td bgcolor=PowderBlue>当发送下一个数据包时，kali首先在ARP缓存中查找192.168.2.107的对应条目<BR>如果存在，就直接使用，不在单独发送另一条ARP广播，但ARP缓存也会定期清空</td></tr></table>  
+
 ```
 arp     #查看ARP缓存记录
 ```
