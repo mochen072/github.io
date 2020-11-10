@@ -55,3 +55,40 @@
             每个变量设置一个payload，分别使用对应的字典对变量进行同时替换。
     - Cluster bomb:焦束炸弹
             需要为每个变量是在一个payload，分别使用字典内容祝贺对变量进行替换
+
+#### **<font color=#FF0000>1.开启burp,并设置好浏览器代理</font>**
+#### **<font color=#FF0000>2.打开靶场窗口，输入任意的账号密码</font>**
+- **2.1可以看出bp已经抓到了你提交的post请求**
+<figure class="thumbnails">
+    <img src="picture/bp/3.png"   >
+</figure>
+
+- **2.2右键发送到intruder模块**
+<figure class="thumbnails">
+    <img src="picture/bp/2.png"   >
+</figure>
+
+- **2.3在上面的attacktype中可以下拉选择类型，一般选取最后一个，交叉型居多**
+- **2.4可以看到箭头所指的两个，就是你输入的账号密码，这时选中账号密码，然后点击右方的add按钮，使它变成可变变量**
+<figure class="thumbnails">
+    <img src="picture/bp/4.png"   >
+    <img src="picture/bp/5.png"   >
+</figure>
+
+- **2.5这时候切换到payloads选项，可以看到<BR>①的位置就是你所add变量的个数，<BR>②的位置就是你添加密码的类型，这些选择runtime file(从文件导入密码)，<BR>③的位置就是导入密码文件的路径**
+<figure class="thumbnails">
+    <img src="picture/bp/6.png"   >
+</figure>
+
+- **2.3下面是Options选项，<BR>①代表线程数，<BR>②代表失败重试的次数，<BR>③代表每次重试间隔的时间**
+- **2.3.1 Grep Match选项，添加条件**
+<figure class="thumbnails">
+    <img src="picture/bp/7.png"   >
+     <img src="picture/bp/10.png"   >
+</figure>
+
+- **2.4下面点击 start attack开始暴力破解，可以看出密码被跑出来了<BR><mark>也可以根据数据包的长度区别来判断哪个为正确的密码,或者根据Grep Match选项，添加的条件来判断<mark>**
+<figure class="thumbnails">
+    <img src="picture/bp/9.png"   >
+    
+</figure>
