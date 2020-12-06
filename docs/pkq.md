@@ -92,3 +92,5 @@
     <img src="picture/bp/9.png"   >
     
 </figure>
+
+## <font color = #1E90FF>暴力破解（验证码绕过）</font>

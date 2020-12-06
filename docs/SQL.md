@@ -1,7 +1,14 @@
 # MYSQL基础
 
-## MySQL元数据库
-### information_schema（5版本以后才有）
+## <font color = #1E90FF>MYSQL数据结构</font>
+</figure>
+     <figure class="thumbnails">
+        <img src="picture/SQLzhuru/mysql结构.png">
+</figure>
+
+
+## <font color = #1E90FF>MySQL元数据库</font>
+### information_schema（5.7版本以后才有）
 
 
   <figure class="thumbnails">
@@ -9,7 +16,7 @@
 
 </figure>
 
-## MySQL语句解析
+## <font color = #1E90FF>MySQL语句解析</font>
 
 
   <figure class="thumbnails">
@@ -18,7 +25,7 @@
 </figure>
 
 
-## MySQL常用内置函数
+## <font color = #1E90FF>MySQL常用内置函数</font>
 
 | 函数名称 | 函数功能 |
 | :------ | :------ |
@@ -44,7 +51,7 @@
 | length() | 返回支付串的长度   |
 
 
-## MYSQL常用函数
+## <font color = #1E90FF>MYSQL常用函数</font>
 
 | 函数名称 | 函数功能 |
 | :------ | :------ |
@@ -62,7 +69,7 @@
 
 
 
-## MYSQL常用函数讲解
+## <font color = #1E90FF>MYSQL常用函数讲解</font>
 - substr()函数
 
 ```

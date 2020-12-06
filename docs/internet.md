@@ -112,7 +112,7 @@ Nslookup  www.jd.com    #手工解析域名IP地址
 - __2. 二转十__
 
 ```
-二：	1	0	1	1	0	1
+  二：	1	0	1	1	0	1
 位权：	32	16	8	4	2	1
 ```
 
@@ -234,6 +234,7 @@ whoami /user	    #查看 SID值
 账号密码存储位置:	c:\windows\system32\config\SAM	#暴力破解/撞库
  ```
 <table><tr><td bgcolor=PowderBlue>注：	windows系统上，默认密码有效期42天	</td></tr></table> 
+
 ```
 net user	    #查看所有用户
 net user admin	    #查看admin详细信息
@@ -300,3 +301,15 @@ __2.NTFS特点：__
 <figure class="thumbnails">
     <img src="picture/linuxShell/gx2.png" > 
 </figure>
+
+## <font color = #1E90FF>常用端口号</font>
+
+
+| 函数名称 | 函数功能 | 函数功能 | 函数功能 |
+| :------ | :------| :------ | :------ |
+|21  |FTP   |443 | HTTPS |
+|22  |SSH   |1433 | SQL Server |
+|23  |Telent   |1521 | Oracle |
+|25  |SMTP   |3306 | Mysql |
+|80  |HTTP   |3389 | 远程桌面 |
+|445  |smb   |80-89 | 可能是web |
