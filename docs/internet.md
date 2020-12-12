@@ -35,11 +35,12 @@
 - IP地址构成：<font color = #FF0000>网络位+主机位（网络位相同的IP地址 ，为同一网段）</font>
 - 子网掩码：<font color = #FF0000>用来确定IP地址的网络位</font>
 - 如何确认网络位：<font color = #FF0000>与255对应的数字为网络位，与0对应的数字为主机位</font>
+```
 	    例如：	
             255.0.0.0
 		    255.255.0.0
 		    255.255.255.0
-
+```
 
 <!-- GitHub Buttons -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
@@ -55,6 +56,7 @@ E   240-254     科研地址
 ```
 <table><tr><td bgcolor=PowderBlue>注：127.0.0.1指的是本机</td></tr></table>
 __<font color = #FF0000>案例1：</font><BR>10.1.1.1<BR>255.255.0.0<BR>属于哪个网段？所在广播地址？ 可用范围？__
+
 ```
 答：	网段：	    10.1.0.0
 	    广播地址：	10.1.255.255
@@ -305,7 +307,7 @@ __2.NTFS特点：__
 ## <font color = #1E90FF>常用端口号</font>
 
 
-| 函数名称 | 函数功能 | 函数功能 | 函数功能 |
+| 函数名称 | 函数功能 | 函数名称 | 函数功能 |
 | :------ | :------| :------ | :------ |
 |21  |FTP   |443 | HTTPS |
 |22  |SSH   |1433 | SQL Server |

