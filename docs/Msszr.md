@@ -50,7 +50,7 @@ END
     ```mssql
     @@version       #查看当前数据库的版本
 
-    select * FROM Users WHERE id = '1' and @@version Like '%14%'
+    select * FROM Users WHERE id = '1' and @@version Like '%14%'        #
 
     select name,loginame from master..syslogins,master..sysprocesses
 

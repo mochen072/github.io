@@ -15,8 +15,10 @@
 - **漏洞原理**
 - [MySQLSql注入](SQLzr)
 - [MsSQLSql注入](Msszr)
+- [文件上传漏洞](wjscld)
 - **工具使用**
 - [SQLMap](SQLMap)
+- [BurpSuite](BurpSuite)
 - **资产收集**
 - [信息收集](xxsj)
 - [主机发现](zjfx)
