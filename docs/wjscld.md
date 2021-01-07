@@ -112,3 +112,52 @@ https://github.com/tennc/webshell
 - **1. 文件参数多finename属性**
     - **文件上传中，如果存在waf拦截一些扩展名，开源尝试多个filename属性**
 - **2.目录可控时，开源尝试使用目录穿越的方法(../)**
+
+## <font color = #1E90FF>解析漏洞</font>
+### <font color = #FF0000>IIS/Nginx+PHP fastcgi取值错误解析漏洞</font>
+- **IIS/Nginx+PHP fastcgi取值错误解析漏洞(配置错误)**
+    - **开启了cgi.fix_pathinfo，如果开启以后，所执行文件不存在，会继续查找上一级文件是否存在。<BR>index.php/id/2<BR>并且未设置sceurity.limit_extensions，该选项限制可以执行的文件类型<BR>示例:abcde.jpg/.php**
+
+### <font color = #FF0000>Nginx文件名逻辑漏洞(CVE-2013-4547)</font>
+- **Nginx文件名逻辑漏洞(CVE-2013-4547)<bR>影响版本:Nginx 0.8.41\~1.4.3/1.5.0\~1.5.7**
+    - **上传一个以空格(%20)为结尾的文件，例如: “adcd.jpg%20”<BR>当访问adcd.jpg%20%00.php时，会将刚刚上传的“abcd.jpg”文件当做php来执行<BR>abcd.jpg%20%00.php<BR>一般的php匹配正则:\\.php$<BR>存在漏洞时，Nginx将adcd.jpg%20当做了脚本文件名**
+
+### <font color = #FF0000>Apache解析漏洞(配置错误)</font>
+- **如果在Apache的conf文件中有如下配置**
+    - **AddHandler application/x-httpd-php.php<BR>则adcd.php.jpg也会被当做php去执行**
+- **如果在.htaccess中有如下配置，可以将扩展名.xxx当做PHP执行**
+    - **AddType application/x-httpd-php xxx**
+        
+### <font color = #FF0000>IIS 5.x/6.0解析漏洞</font>
+- **上传文件名: adbc.asp;.jpg**
+    - **服务器默认不解析;后后面的内容，因此，adcd.asp;.jpg被当做asp文件解析**
+- **向xxx.asp目录下面上传adcd.jgp**
+    - **服务器会将xxx.asp目录下的文件都当做asp文件来执行**
+
+## <font color = #1E90FF>高级绕过技巧</font>
+### <font color = #FF0000>重绘图</font>
+**应用提哦啊用图片库对上传的文件进行了图像转换，所以即使将图片与文件合并，也会将尾部转换掉，无法使用前面所讲的方法进行上传webshell**
+- **①将正常图片用目标使用的图形库进行转换**
+- **② 寻找转换前后两次未变的部分**
+- **③ 将未变部分替换为欲上传的webshell**
+- **④ 将替换后的文件进行图像转换，看是否转后后仍存在替换后部分**
+
+### <font color = #FF0000>phpinfo与本地文件包含的利用</font>
+__某站点存在本地文件包含及PHPINFO，可以利用其执行脚本__
+</figure>
+     <figure class="thumbnails">
+        <img src="picture/wjsc/wjsc10.png">
+</figure>
+
+- **① PHP在解析multipart/form-data请求时，会创建临时文件，并写入上传年内容，脚本执行结束后即删除**
+- **② PHPINFO可以输出$_FILES信息**
+- **③通过多种方式争取时间，在临时文件删除前进行执行包含**
+    - **1.通过在数据报文中加入大量的垃圾数据，使PHPINFO页面过大，导致PHP输出进入流式输出，并不一次输出完毕**
+    - **通过大量请求来延迟PHP脚本的执行速度**
+
+### <font color = #FF0000>在线解压缩漏洞的利用</font>
+__存在上传压缩包并解压的上传点，可使用如下方式利用__
+
+- **① 将Webshell打包到压缩包中**
+    - **1.模板上传处常用压缩包上传后进行自动解压<BR>部分此类有检测压缩包内容的，可尝试建立目录进行压缩**
+    - **2.使用目录穿越(../)的方法想上一级目录进行上传**

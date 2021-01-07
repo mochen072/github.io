@@ -16,6 +16,9 @@
 - [MySQLSql注入](SQLzr)
 - [MsSQLSql注入](Msszr)
 - [文件上传漏洞](wjscld)
+- [XSS漏洞](xss)
+- [其他](qt)
+- [SSRF](ssrf)
 - **工具使用**
 - [SQLMap](SQLMap)
 - [BurpSuite](BurpSuite)
