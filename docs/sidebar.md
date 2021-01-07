@@ -18,7 +18,8 @@
 - [文件上传漏洞](wjscld)
 - [XSS漏洞](xss)
 - [其他](qt)
-- [SSRF](ssrf)
+- [SSRF漏洞](ssrf)
+- [XXE漏洞](xxe)
 - **工具使用**
 - [SQLMap](SQLMap)
 - [BurpSuite](BurpSuite)
@@ -31,6 +32,7 @@
 - **读书笔记，胡言乱语**
 - [《渗透测试完全初学者指南》](stcszn)
 - [《黑客心理学:社会工程学原理》](shgcx)
+- [《计算机科学导论》](kxdl)
 - **GitHub**
 - [GitHub](GitHub)
 - **Git**
