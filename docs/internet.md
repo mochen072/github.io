@@ -55,6 +55,7 @@ E   240-254     科研地址
 
 ```
 <table><tr><td bgcolor=PowderBlue>注：127.0.0.1指的是本机</td></tr></table>
+
 __<font color = #FF0000>案例1：</font><BR>10.1.1.1<BR>255.255.0.0<BR>属于哪个网段？所在广播地址？ 可用范围？__
 
 ```
@@ -91,6 +92,7 @@ __<font color = #FF0000>案例1：</font><BR>10.1.1.1<BR>255.255.0.0<BR>属于�
 
 ```
 <table><tr><td bgcolor=PowderBlue>注：如ping不同，可能对方不在线或者对方开了防火墙</td></tr></table>
+
 - __3. 手工解析域名__
 ```
 Nslookup  www.jd.com    #手工解析域名IP地址

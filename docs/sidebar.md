@@ -20,6 +20,7 @@
 - [其他](qt)
 - [SSRF漏洞](ssrf)
 - [XXE漏洞](xxe)
+- [提权](tq)
 - **工具使用**
 - [SQLMap](SQLMap)
 - [BurpSuite](BurpSuite)
