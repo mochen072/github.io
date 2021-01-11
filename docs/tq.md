@@ -101,3 +101,41 @@ unshadow /etc/passwd /etc/shadow > 2.txt        #导出密码列表
 john --wordlist=/usr/share/john/password.lst 2.txt      #加载字典暴力破解密码
 john --show 2.xt        #显示破解成功的密码
 ```
+
+## <font color = #1E90FF>Windows提权</font>
+### <font color = #FF0000>整体总结</font><BR>
+</figure>
+     <figure class="thumbnails">
+        <img src="picture/tq/tq3.png">
+</figure>
+
+### <font color = #FF0000>Windows提权基础命令</font><BR>
+- **查看系统信息**
+```
+systemnfo | findstr /B /C:"OS名称" /C:"OS版本"
+```
+
+- **主机名**
+```
+Hsotname
+```
+
+- **环境变量**
+```
+Set
+```
+
+- **查看用户信息**
+```
+Net user
+Net1 user
+```
+
+- **查看服务pid号**
+```
+Tasklist /svc|find "TermService" 
+netstat -ano|find "1488"
+```
+
+### <font color = #FF0000>Windows提权实践</font><BR>
+- **WinSystemHelper-master**
