@@ -139,3 +139,10 @@ netstat -ano|find "1488"
 
 ### <font color = #FF0000>Windows提权实践</font><BR>
 - **WinSystemHelper-master**
+    - **上传bat+txt文件，运行bat查看结果**
+
+## <font color = #1E90FF>Linux提权</font>
+</figure>
+     <figure class="thumbnails">
+        <img src="picture/tq/tq4.png">
+</figure>

@@ -17,13 +17,14 @@
 - [MsSQLSql注入](Msszr)
 - [文件上传漏洞](wjscld)
 - [XSS漏洞](xss)
-- [其他](qt)
 - [SSRF漏洞](ssrf)
 - [XXE漏洞](xxe)
 - [提权](tq)
+- [其他](qt)
 - **工具使用**
 - [SQLMap](SQLMap)
 - [BurpSuite](BurpSuite)
+- [Metasploit](Metasploit)
 - **资产收集**
 - [信息收集](xxsj)
 - [主机发现](zjfx)

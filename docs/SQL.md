@@ -1,9 +1,11 @@
 # MYSQL基础
 
 ## <font color = #1E90FF>MYSQL数据结构</font>
+__数据库驱动的Web应用通常包含三层:表示层，逻辑层和存储层<BR>从概念上看，三层架构是一种线性关系__
 </figure>
      <figure class="thumbnails">
         <img src="picture/SQLzhuru/mysql结构.png">
+        <img src="picture/SQLzhuru/mysql结构1.png">
 </figure>
 
 
