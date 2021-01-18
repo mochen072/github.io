@@ -207,3 +207,48 @@ __形成XSS漏洞的主要原因是程序对输入和输出的控制不够严格
     <img src="picture/pkcbc/XSS3.png" >
 </figure>
 
+## <font color = #1E90FF>存储型XSS</font>
+**存储型XSS漏洞跟反射型形成的原因一样,不同的是存储型XSS下攻击者可以将脚本注入到后台存储起来,构成更加持久的危害,因此存储型XSS也称"永久型”XSS。**
+
+### <font color=#FF0000>存储型XSS实验演示</font>
+- **1.在输入框输入\<script>alert(1)\</script>**
+- **发现弹窗被插入进去，刷新页面发现弹窗还在**
+<figure class="thumbnails">
+    <img src="picture/pkcbc/存储型XSS.png" >
+
+</figure>
+
+## <font color = #1E90FF>DOM型XSS</font>
+
+**通过JavaScript ,可以重构整个HTML文档。您可以添加、移除、改变或重排页面上的项目。<BR>要改变页面的某个东西,JavaScript就需要获得对HTML文档中所有元素进行访问的入口。这个入口，连同对HTML元素进行添加、移动、改变或移除的方法和属性,都是通过文档对象模型来获得的( DOM ) <BR>所以,你可以把DOM理解为一个个访问HTML的标准编程接口。**
+
+### <font color=#FF0000>DOM型XSS实验演示</font>
+- **1.打开靶场，选择DOM型XSS关卡**
+- **任意输如，并查看前端代码**
+```javascript
+<script>
+     function domxss(){
+        var str = document.getElementById("text").value;
+        document.getElementById("dom").innerHTML = "<a href='"+str+"'>what do you see?</a>";
+     }
+    //试试：'><img src="#" onmouseover="alert('xss')">
+    //试试：' onclick="alert('xss')">,闭合掉就行
+</script>
+```
+- **闭合代码，发现成功插入**
+    - **`#' onclick="alert(1)" '>`**
+```javascript
+<a href=''>what do you see?</a>";
+<a href='  #' onclick="alert(1)" >  '>what do you see?</a>";
+
+```
+
+## <font color = #1E90FF>XSS获取Cookie</font>
+<figure class="thumbnails">
+    <img src="picture/pkcbc/获取cookie.png" >
+</figure>
+
+## <font color = #1E90FF>POST形式XSS</font>
+<figure class="thumbnails">
+    <img src="picture/pkcbc/POSTXSS.png" >
+</figure>
