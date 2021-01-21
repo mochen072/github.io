@@ -240,7 +240,6 @@ __形成XSS漏洞的主要原因是程序对输入和输出的控制不够严格
 ```javascript
 <a href=''>what do you see?</a>";
 <a href='  #' onclick="alert(1)" >  '>what do you see?</a>";
-
 ```
 
 ## <font color = #1E90FF>XSS获取Cookie</font>
@@ -252,3 +251,46 @@ __形成XSS漏洞的主要原因是程序对输入和输出的控制不够严格
 <figure class="thumbnails">
     <img src="picture/pkcbc/POSTXSS.png" >
 </figure>
+
+## <font color = #1E90FF>XS盲打</font>
+## <font color = #1E90FF>XS绕过</font>
+
+### <font color=#FF0000>XSS绕过过滤转换</font>
+
+- **0.前端限制绕过，直接抓包重放,或者修改html前端代码**
+- **1.大小写,比如:**
+```javascript
+<SCRIPT>aLeRT(111)</sCRIpt>
+```
+
+- **2.拼凑:** 
+```javascript
+<scri<script>alrt(111)</scri</script> pt>
+```
+
+**3.使用注释进行干扰:** 
+```javascript
+<scri<!-test--> pt> alert(111)</sc <!--test--> ript>
+```
+
+### <font color=#FF0000>例</font>
+```
+<img src=x onerror=" alert("xss')"将alert("Xss )进行URL编码,可以执行吗
+<img src=x onerror=" alert%28%27xss%27%29" />
+```
+**并不会执行。因为这些属性标签并不会正常解析这些编码**
+
+## <font color = #1E90FF>XS绕过-htmlspecialchars()函数</font>
+**htmlspecialchars()函数把预定义的字符转换为HTML实体**
+### <font color=#FF0000>预定义的字符是:</font>
+- **0&(和号)成为&amp**
+- **"(双引号)成为&quot**
+- **'(单引号)成为&#039**
+- **<(小于)成为&lt**
+- **>(大于)成为&gt**
+
+### <font color=#FF0000>可用的引号类型::</font>
+
+- **ENT_ COMPAT ----默认。仅编码双引号。**
+- **ENT_ QUOTES ----编码双引号和单引号。**
+- **ENT NOQUOTES ----不编码任何引号.**
