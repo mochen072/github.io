@@ -354,4 +354,10 @@ user_ id= '$id'
 ```
 text LIKE '%{$_ GET['search']}%'"
 ```
+
 ## <font color = #1E90FF>SQL注入（数字型）</font>
+
+## <font color = #1E90FF>HTTP Header注入</font> 
+
+**有些时候,后台开发人员为了验证客户端头信息(比如常用的cookie验证)<BR>或者通过http header头信息获取客户端的一些信息,比如useragent、accept字段等等。会对客户端的http header信息进行获取并使用SQL进行处理，如果此时没有足够的安全考虑则可能会导致基于http header的SQL Inject漏洞。**
+
