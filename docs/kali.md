@@ -21,7 +21,25 @@
       deb http://mirrors.neusoft.edu.cn/kali kali-rolling/main non-free contrib
       deb-src http://mirrors.neusoft.edu.cn/kali kali-rolling/main non-free contrib
 
-
+## <font color = #1E90FF>基础命令</font>
+- **ls**
+    - 遍历当前目录
+- **ls -l**
+    - 显示详细信息
+- **ls -la**
+    - 遍历目录（包括隐藏文件）
+- **more /root**
+    - 分页显示root目录下的内容
+- **top**
+    - 查看进程等
+- **kill 进程pid**
+    - 杀死进程
+- **grep ssh /etc**
+    - 筛选etc里面包含ssh的
+- **netstat -pantu**
+    - 显示网络状态
+- **|**
+    - 管道符
 
 ## <font color = #1E90FF>ARP攻击及原理</font>
 
