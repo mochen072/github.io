@@ -143,14 +143,14 @@ wireshark
 
 </figure>
      <figure class="thumbnails">
-        <img src="picture\wireshark/wireshark.png">
+        <img src="picture\wireshark/ws.png">
 </figure>
 
 - **选择网卡**
 
 </figure>
      <figure class="thumbnails">
-        <img src="picture/wireshark/wireshark1.png">
+        <img src="picture/wireshark/ws1.png">
 </figure>
 
 ## <font color = #1E90FF>ARP攻击及原理</font>
