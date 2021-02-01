@@ -1,4 +1,4 @@
-# XSS漏洞
+# XSS跨站脚本攻击
 ## <font color = #1E90FF>XSS漏洞的定义</font>
 __XSS又叫CSS（Cross Site Script）,跨站脚本攻击，它指的是恶意攻击者往Web页面里插入恶意JS代码，当用户浏览该页之时，嵌入其中的Web里面的JS代码会被执行，从而达到恶意的目的__
 
