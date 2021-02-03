@@ -1,5 +1,5 @@
 ## <font color = #1E90FF>Kali更新源</font>
-
+**Kali Linux是基于Debian的Linux发行版， 设计用于数字取证操作系统.**
 
        #中科大
       deb http://mirrors.ustc.edu.cn/kali kali-rolling main non-free contrib
@@ -156,12 +156,28 @@ wireshark
 ### <font color = #FF0000>常见协议包</font>
 #### <font color =#B22222 size=1>ARP</font>
 
+## <font color = #1E90FF>DNS-信息收集</font>
+### <font color = #FF0000>NSLookUp</font>
+
 ## <font color = #1E90FF>ARP攻击及原理</font>
 
-Kali Linux是基于Debian的Linux发行版， 设计用于数字取证操作系统.
+- **解析域名**
+```
+nslookup 域名
+例：
+nslookup www.baidu.com      #查询百度DNS
+```
+</figure>
+     <figure class="thumbnails">
+        <img src="picture/kali/nslookup.png">
+</figure>
 
+- **指定查询类型**
+```
+set type = ns   #指定查询ns记录
+```
 
- ### <font color =#B22222 size=1>ARP欺骗原理及复现</font>
+## <font color =#B22222 size=1>ARP欺骗原理及复现</font>
 * <font color =#FF4500 >什么ARP协议</font><br>
 
     即地址解析协议，是根据IP地址解析物理地址的一个TCP/IP协议。主机将包含目标IP地址信息的ARP请求广播到网络中的所有主机，并接收返回消息，以此确定目标IP地址的物理地址；收到返回消息后将该IP地址和物理地址存入本机ARP缓存中并保留一定时间，以便下次请求时直接查询ARP缓存以节约资源.<br>

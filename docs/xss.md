@@ -27,10 +27,15 @@ __攻击者在页面上插入XSS代码，服务端将数据存入数据库，当
 - **前台用户编辑订单的收货地址，在这里 address,des,email,postname 都是存在 XSS 的，插入 XSS Payload**
 - **查看订单详情发现前台已经被 XSS**
 - **管理员进入后台查看商城订单同样也会被 XSS**
+
 ## <font color = #1E90FF>反射型XSS</font>
 ### <font color = #FF0000>原理</font>
-__攻击者在url中插入XSS代码，服务端将URL中的XSS代码输出到页面上，攻击者将带有XSS大妈的URL发送给用户，用户打卡后受到XSS攻击__
+__攻击者在url中插入XSS代码，服务端将URL中的XSS代码输出到页面上，攻击者将带有XSS大马的URL发送给用户，用户打卡后受到XSS攻击<BR><font color = #FF0000>特点：</font><BR>只在用户单击时触发，而且只执行一次，非持久化，所以称为反射型跨站式脚本。<BR><font color = #FF0000>通常出现在网站的搜索栏、用户登入口等地方，常用来窃取客户端 Cookies 或进行钓鱼欺骗</font>__
+
+
 ### <font color = #FF0000>WordPress Brafton 3.3.10</font>
+
+
 ## <font color = #1E90FF>DOM型XSS</font>
 ### <font color = #FF0000>原理</font>
 __攻击者在url中插入XSS代码，前端页面直接从URL中获取XSS代码并且输出到页面，导致XSS代码的执行，攻击者将带有XSS代码的URL发送给用户，用户打开后收到xss攻击__
