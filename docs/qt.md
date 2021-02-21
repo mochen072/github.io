@@ -229,3 +229,40 @@ __通过验证码自动识别漏洞实现暴力破解登录密码。__
         user文件在mysql的data目录下
         select @ @basedir
         select @@plugin_ dir #>5.1
+
+## <font color = #1E90FF>图片隐写</font>
+### <font color = #FF0000>Misc简介</font>
+__Misc为英文miscellaneous的前四个字母,杂项、混合体、大杂烩的意思。__<BR>
+__主要类型:__<br>
+ - **1.数据编码/图形密码**
+ - **2.图片隐写**
+ - **3.音频&视频隐写**
+ - **4.流量分析**
+ - **5.内存取证**
+ - **6.游戏隐写**
+
+### <font color = #FF0000>010editor</font>
+### <font color = #FF0000>图片隐写分类</font>
+- **(1)右击属性**
+- **(2)文件末尾藏有字符串**
+- **(3)文件包含**
+- **(4)修改文件头**
+
+- **(5)GIF**
+- **(6)png (bmp)**
+- **(7)JPG**
+
+- **(8)双图隐写**
+- **(9)stegpy**
+- **(10)silenteye**
+
+### <font color = #FF0000>细讲图片隐写的分类:(2)文件 十六进制藏有字符串</font>
+
+- **strings查找可打印的字符**
+    - **kali预装**
+    - **strings file**
+- **grep使用正则表达式搜索，并输出匹配的行**
+    - **grep flag**
+- **file识别文件类型**
+    - **file文件**
+
