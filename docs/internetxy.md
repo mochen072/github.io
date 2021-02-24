@@ -8,6 +8,38 @@
 <a class="github-button" href="https://github.com/jhildenbiddle/docsify-themeable" data-icon="octicon-star" data-show-count="true" aria-label="Star jhildenbiddle/docsify-themeable on GitHub">Star</a>
 
 ## <font color = #1E90FF>Http请求与响应 </font>
+### __<font color = #FF0000>HTTP协议请求方法</font><BR>__
+
+- **GET:**
+    - **向指定资源发出显示请求**
+- **HEAD:**
+    - **和GET-一样，但是不传回所有资源内容一书**
+- **POST:**
+    - **向指定资源提交数据，数据被包含在请求中**
+- **PUT:**
+    - **向指定位置上传**
+- **DELETE:**
+    - **删除所标识的资源**
+- **OPTIONS:**
+    - ***这个方法可使服务器传回该资源所支持的所有HTTP请求方法。用*'来代替资源名称，向Web服务器发送OPTIONS请求，可以测试服务器功能是否正常运作**
+
+## <font color = #1E90FF>Http协议状态码 </font>
+- **1xx:指示信息--表示请求已接收,继续处理**
+- **2xx:成功--表示请求已被成功接收、理解、接受**
+- **3xx:重定向--要完成请求必须进行更进一步的操作**
+- **4xx:客户端错误--请求有语法错误或请求无法实现**
+- **5xx:服务器端错误--服务器未能实现合法的请求**
+
+### __<font color = #FF0000>常见的状态码</font><BR>__
+
+- **200 OK //客户端请求成功**
+- **400 Bad Request //客户端请求有语法错误，不能被服务器所理解**
+- **401 Unauthorized //请求未经授权，这个状态代码必须和WWW- Authenticate报头域一起使用**
+- **403 Forbidden //服务器收到请求，但是拒绝提供服务**
+- **404 Not Found //请求资源不存在，eg: 输入了错误的URL 500 Internal Server Error //服务器发生不可预期的错误**
+- **503 Server Unavailable //服务器当前不能处理客户端的请求，-段时间后可能恢复正常**
+
+
 
 ### __<font color = #FF0000>1.HTTP请求</font><BR>__
 __HTTP请求由三部分组成，分别是:请求行、消息报头、请求正文;HTTP响应也是由三个部分组成，分别是∶状态行、消息报头、响应正文，它们之间以CRLF即\rn分割，且报头与正文之间有一个空行。在客户机和服务器之间进行请求-响应时，两种最常被用到的方法是:GET和POST。__
