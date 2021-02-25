@@ -8,6 +8,57 @@ __数据库驱动的Web应用通常包含三层:表示层，逻辑层和存储�
         <img src="picture/SQLzhuru/mysql结构1.png">
 </figure>
 
+## <font color = #1E90FF>MySQL基本操作</font>
+
+
+### <font color = #FF0000>增</font>
+- **创建数据库**
+```mysql
+create database 数据库名;
+例:
+create database test1;
+```
+
+- **创建数据表**
+```mysql
+create table [表名] ( [字段名][字段类型][字段要求] );
+例:
+create table user(id int[10] AUTO_INCREMENT);
+```
+
+### <font color = #FF0000>删</font>
+- **删除数据库**
+```mysql
+drop database 数据库名;
+例:
+drop database test1;
+```
+
+
+### <font color = #FF0000>改</font>
+```mysql
+ALTER table [表名] add column[字段名] datatype;
+
+```
+
+### <font color = #FF0000>查</font>
+- **打开数据库**
+```mysql
+use 数据库名;
+例:
+use test1;
+```
+
+- **查询当前使用的数据库**
+```mysql
+select database();
+```
+
+- **显示数据表字段**
+```mysql
+describe 表名;
+describe user;
+```
 
 ## <font color = #1E90FF>MySQL元数据库</font>
 ### information_schema（5.7版本以后才有）

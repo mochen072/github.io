@@ -47,3 +47,91 @@
 - **严谨**
 - **伪装隐藏**
 - **避免机警(删除了全部日志)**
+
+
+## <font color = #1E90FF>信息收集</font>
+### <font color = #FF0000>主动信息收集</font>
+**主动信息搜集是与目标主机进行直接交互，从而拿到我们的目标信息**
+### <font color = #FF0000>被动信息收集</font>
+**不与目标主机进行直接交互，通过搜索引擎或者社交等方式间接的获取目标主机的信息。**
+
+## <font color = #1E90FF>常用的几种方法</font>
+### <font color = #FF0000>whois</font>
+```
+https://whois.chinaz.com/
+```
+
+### <font color = #FF0000>谷歌语法</font>
+### <font color = #FF0000>子域名挖掘机Layer</font>
+### <font color = #FF0000>在线子域名挖掘</font>
+
+## <font color = #1E90FF>目标IP</font>
+### <font color = #FF0000>没加CDN的网站</font>
+```
+ping 域名即可
+```
+
+### <font color = #FF0000>加了CDN:</font>
+
+- **二级域名法**
+- **域名历史解析**
+```
+https://x.threatbook.cn/
+```
+
+## <font color = #1E90FF>旁站C段</font>
+**旁站是和目标网站在同一台服务器上的其它的网站;如果从目标站本身找不到好的入手点，这时候,如果想快速拿下自标的话，一般都会 先找个目标站点所在服务器上其他的比较好搞的站下手，然后再想办法跨到真正目标的站点目录中。<BR>C段是和目标机器ip处在同一个C段的其它机器;通过目标所在C段的其他任一台机器， 想办法跨到我们的目标机器上。**
+
+```
+http://webscan.cc/
+```
+
+- **Nmap**
+
+
+## <font color = #1E90FF>CMS类型</font>
+### <font color = #FF0000>识别方式: </font>
+- **网站特有文件/templets/defaultstyle/dedecms.css --- dedecms**
+- **网站独有文件的md5**
+- **网站命名规则**
+- **返回头的关键字**
+
+### <font color = #FF0000>工具:</font>
+- **网页关键字**
+- **云悉:**
+    ```
+     http://yunsee.cn
+    ```
+- **Whatweb:**
+    ```
+      http://whatweb.bugscaner.com/look/
+    ```
+- **URL特征**
+- **Script特征**
+- **robots.txt**
+- **网站路径特征**
+- **网站静态资源**
+- **爬取网站目录信息**
+
+## <font color = #1E90FF>敏感文件</font>
+- **.git .SVn .DB store源代码泄露**
+- **扫描**
+- **御剑**
+- **dirbrute**
+
+## <font color = #1E90FF>端口信息</font>
+ - **Nmap**
+ - **masscan**
+
+## <font color = #1E90FF>服务器和中间件</font>
+### <font color = #FF0000>Web容器:</font>
+- **apache,nginx iis6.0>解析漏洞**
+
+### <font color = #FF0000>服务器:</font>
+ - **Windows**
+- **Linux**
+
+## <font color = #1E90FF>WAF(防火墙)</font>
+
+
+
