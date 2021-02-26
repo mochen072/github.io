@@ -133,5 +133,23 @@ http://webscan.cc/
 
 ## <font color = #1E90FF>WAF(防火墙)</font>
 
+## <font color = #1E90FF>后台查找</font>
+### <font color = #FF0000>源代码:</font>
+<B>个别网站他的图片上传到了后台目录下，在引用的时候就可能会暴露自己的后台<B>
+
+### <font color = #FF0000>robots.txt</font>
+<B>(统一小写) 是一种存放于网站根目录下的ASCII编码的文本文件，它通常告诉网络搜索引擎的漫游器(又 称网络蜘蛛)，此网站中的哪些内容是不应被搜索引擎的漫游器获取的，哪些是可以被漫游器获取的。因为一些系统中的URL是大小写敏感的，所以robots.txt的文件名应统一为小写。<BR>
+robots.txt应放置于网站的根目录下。<B>
+
+### <font color = #FF0000>BurpSuite</font>
+- **Spider---爬虫模块**
+
+- **Scanner---扫描模块**
+
+
+### <font color = #FF0000>扫描器</font>
+- <B>御剑<B>
+- <B>awvs<B>
+
 
 
