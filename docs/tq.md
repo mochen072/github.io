@@ -141,8 +141,22 @@ netstat -ano|find "1488"
 - **WinSystemHelper-master**
     - **上传bat+txt文件，运行bat查看结果**
 
+
+
+## <font color = #1E90FF>缓冲区溢出漏洞</font>
+### <font color = #FF0000>溢出原因</font>
+
+**根据程序执行中堆栈调用原理，程序对超出边界的部分如果没有经过验证自动去掉，那么超出边界的部分就会覆盖后面的存放程序指针的数据，当执行完上面的代码，程序会自动调用指针所指向地址的命令。**
+- **本地溢出:**
+        向本机发起-----ms16-032   
+- **远程溢出:**
+        向目标主机发起-----ms17010
+
+
+
 ## <font color = #1E90FF>Linux提权</font>
 </figure>
      <figure class="thumbnails">
         <img src="picture/tq/tq4.png">
 </figure>
+

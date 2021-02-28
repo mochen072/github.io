@@ -14,6 +14,13 @@
         <img src="picture/wjsc/wjsc2.png">
 </figure>
 
+
+## <font color = #1E90FF>上传漏洞总结</font>
+</figure>
+     <figure class="thumbnails">
+        <img src="picture/wjsc/wjsc11.png">
+</figure>
+
 ## <font color = #1E90FF>构成文件上传漏洞的原因</font>
 **当文件上传点未对上传的文件进行严格的验证和过滤时，就容易造成任意文件上传，包括上传动态文件(asp/php/jsp等等)<BR>如果上传的目标目录没有限制执行权限，导致所上传的动态文件(比如webshell)可以正常执行并且可以访问，即造成了文件上传漏洞**
 
