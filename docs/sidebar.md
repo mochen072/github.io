@@ -26,6 +26,7 @@
 - [SQLMap](SQLMap)
 - [BurpSuite](BurpSuite)
 - [Metasploit](Metasploit)
+- [其他工具](qtgj)
 - **资产收集**
 - [信息收集](xxsj)
 - [主机发现](zjfx)

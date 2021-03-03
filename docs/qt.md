@@ -266,3 +266,57 @@ __主要类型:__<br>
 - **file识别文件类型**
     - **file文件**
 
+
+## <font color = #1E90FF>DNS劫持</font>
+### <font color = #FF0000>原理</font>
+<B>虽然计算机通信需要对方的IP,但最低层的传输是在物理层上，传输的二进制和MAC帧将IP解析成MAC地址的就是说ARP缓存表
+
+<BR>主机A,B,C在同一个网关内，主机A要和主机B通信 ，知道主机A的IP, 但是ARP缓存表没有主机B的MAC地址<BR>于是他会在局域网广播询问主机B的MAC , 主机B会应答自己的MAC
+
+<BR>每个设备的IP是不固定的，所以设备的ARP缓存表也要每隔一段时间都会更新，  发起广播<BR> 这时，<font color = #FF0000>如果主机A广播询问主机B的MAC时，主机C应答自己的MAC，这时主机A就会认为主机C是主机B</font>
+
+<BR>
+
+
+当你在浏览器中输入网址访问的时候，要先对该域名发给DNS 服务器进行解析， DNSD服务器的地址是外网IP,网络数据要先通过网关，如果把攻击的MAC伪装成网关的MAC
+
+<BR>
+局域网内本来要发给网关的数据发给了攻击者，攻击者就可以读这些数据进行截获，被攻击者访问域名的时候，攻击者截获请求并解析成自己的IP，配置好自己伪造的页面，被攻击者打开的就是伪造过的页面
+</B>
+
+
+### <font color = #FF0000>所需工具:</font>
+- **Ettercap**
+    - **可以进行ARP欺骗DNS劫持等等常见的中间人攻击**
+
+### <font color = #FF0000>演示:</font>
+
+#### <font color = #7B68EE>1.修改ettercap配置文件</font>
+```ettercap
+leafpad /etc/ettercap/etter.dns
+```
+
+- **1.1注释三行**
+- **1.2增加两行主机记录，添加的IP地址为当前攻击机的IP地址**
+</figure>
+     <figure class="thumbnails">
+        <img src="picture/qt/DNS劫持演示.png">
+        <img src="picture/qt/DNS劫持演示1.png">
+</figure>
+
+#### <font color = #008080>2.在终端中输入Ettecap -G打开工具</font>
+```ettercap
+ettercap -G
+```
+
+#### <font color = #008080>2.点击Sniff--Unified sniffing选择eth0网卡</font>
+#### <font color = #008080>3.点击Hosts---Sacn for hosts去扫描其他主机</font>
+#### <font color = #008080>4.扫描结束后，点击Hosts---Hosts list查看扫描结果</font>
+#### <font color = #008080>5.将攻击机的Ip地址选中 ---点击Add Target 1 <BR>  将目标地址选中---点击Add Target 2 </font>
+
+#### <font color = #008080>6.点击Mitm---ARP poisoning ---弹出的两个选项勾选上，开始ARP欺骗</font>
+
+#### <font color = #008080>7.Plugins---Manage the plugins（管理我们的模块），在众多模块中选择 dns_spoof并双击，左侧出现*号就代表正在使用该模块了</font>
+#### <font color = #008080>8.点击Start----Start sniffinf开始攻击</font>
+
+#### <font color = #008080>9.打开目标机器会发现攻击成功了</font>
