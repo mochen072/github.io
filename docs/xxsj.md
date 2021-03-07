@@ -144,6 +144,16 @@ python GitHack.py 目标网址/git/   #需要python2环境
 ## <font color = #1E90FF>WAF(防火墙)</font>
 
 ## <font color = #1E90FF>后台查找</font>
+### <font color = #FF0000>常用的寻找方式:</font>
+- <B>1.通过robots. .txt文件寻找</B>
+- <B>2.通过谷歌语法寻找</B>
+- <B>3.查看网站底部管理入口4.请求一些不存在的错误路径</B>
+- <B>5.在线网站指纹识别</B>
+- <B>6.猜解常见后台路径</B>
+- <B>7.字典爆破后台路径</B>
+- <B>8.目标子域名寻找</B>
+- <B>9.通过xss插后台</B>
+
 ### <font color = #FF0000>源代码:</font>
 <B>个别网站他的图片上传到了后台目录下，在引用的时候就可能会暴露自己的后台</B>
 
@@ -163,3 +173,25 @@ robots.txt应放置于网站的根目录下。</B>
 
 
 ## <font color = #1E90FF>谷歌语法</font>
+
+## <font color = #1E90FF>JS文件爬取</font>
+### <font color = #FF0000>JSFinder.py</font>
+- **简单爬取**
+```
+python3 JSFinder.py -u https://example.com
+```
+
+- **深度爬取**
+
+  ```
+  python3 JSFinder.py -u https://example.com  -d -ou xx_url.txt -os_domain.txt
+  - d    # 进项税深度爬取
+  -ou     # 指定url保存的文件名
+  -os     # 指定子域名所保存的文件名
+  ```
+
+  ## <font color = #1E90FF>CDN</font>
+  <B>CDN,即内容分发网络，主要解决因传输距离和不同运营商节点造成的网络速"度性能低下的问题。说得简单点，就是一组在不同
+  运营商之 间的对接节点上的高速缓存服务器，把用户经常访问的静态数据资源(例如CSS,HTML)直接缓存在CDN服务器上，当用户再
+  次请求时，会直接分发到在离用户近的节点服务器上响应给用户，当用户有实际数据交互时，才会从远程web服务器上响应。</B>
+  
